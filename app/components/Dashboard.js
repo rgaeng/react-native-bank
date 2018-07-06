@@ -4,7 +4,7 @@ import Balance from './Dashboard/Balance'
 import TransactionsList from './Dashboard/TransactionsList'
 
 class Dashboard extends Component {
-  render () {
+  render() {
     return (
       <ScrollView>
         <Balance />
