@@ -1,30 +1,34 @@
 import React, { Component } from 'react'
-import {Text, View} from 'react-native';
+import { Text, View } from 'react-native';
 import { Card, List, ListItem, MaterialCommunityIcons } from 'react-native-elements';
 import { iOSColors, iOSUIKit } from 'react-native-typography'
+import { withNavigation } from 'react-navigation';
 
-import { topTransactions, topCategories} from '../../static/fakeData';
+import { topTransactions, topCategories } from '../../static/fakeData';
 
 
 
 class TransactionsList extends Component {
-  render () {
+  render() {
+    const { navigation } = this.props;
     return (
-       <View>
+      <View>
         <Card>
           <Text style={iOSUIKit.subheadEmphasized}>Top categories</Text>
-          <List containerStyle={{ borderTopColor: '#fff'  }}  >
+          <List containerStyle={{ borderTopColor: '#fff' }}  >
             {
               topCategories.map((item, i) => (
                 <ListItem
                   key={i}
                   title={item.title}
+                  titleNumberOfLines={2}
                   leftIcon={{ name: item.icon, type: 'material-community', color: iOSColors.yellow }}
                   // subtitle={item.subtitle}
                   rightTitle={item.amount}
                   hideChevron
-                  rightTitleStyle={{color: iOSColors.green, marginRight: 5}}
-                  containerStyle={{borderBottomColor: '#fff', borderTopColor: '#fff'  }}  
+                  rightTitleStyle={{ color: iOSColors.green, marginRight: 5 }}
+                  rightTitleNumberOfLines={2}
+                  containerStyle={{ borderBottomColor: '#fff', borderTopColor: '#fff' }}
                 />
               ))
             }
@@ -33,7 +37,7 @@ class TransactionsList extends Component {
 
         <Card>
           <Text style={iOSUIKit.subheadEmphasized}>Latest transactions</Text>
-          <List containerStyle={{ borderTopColor: '#fff'  }} >
+          <List containerStyle={{ borderTopColor: '#fff' }} >
             {
               topTransactions.map((item, i) => (
                 <ListItem
@@ -43,8 +47,9 @@ class TransactionsList extends Component {
                   subtitle={item.subtitle}
                   rightTitle={item.amount}
                   hideChevron
-                  rightTitleStyle={{color: iOSColors.red, marginRight: 5}}
-                  containerStyle={{borderBottomColor: '#fff', borderTopColor: '#fff'  }}  
+                  rightTitleStyle={{ color: iOSColors.red, marginRight: 5 }}
+                  containerStyle={{ borderBottomColor: '#fff', borderTopColor: '#fff' }}
+                  onPress={() => navigation.navigate('Transaction', { transaction: item })}
                 />
               ))
             }
@@ -55,4 +60,4 @@ class TransactionsList extends Component {
   }
 }
 
-export default TransactionsList
+export default withNavigation(TransactionsList);
