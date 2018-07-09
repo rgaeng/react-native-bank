@@ -1,89 +1,122 @@
 import React from 'react';
-import { Button, View, SafeAreaView, Text, StatusBar } from 'react-native';
+import { Button, View, SafeAreaView, StatusBar } from 'react-native';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import { MaterialIcons } from '@expo/vector-icons';
+import PropTypes from 'prop-types';
 import Dashboard from './app/components/Dashboard';
 import Cards from './app/components/Cards/Cards';
 import Payments from './app/components/Payments/Payments';
-import Transaction from './app/components/Transaction';
+import Accounts from './app/components/Accounts';
 // import { iOSColors } from 'react-native-typography';
 
-const DashboardView = ({ navigation }) => (
-  <SafeAreaView style={{
-    flex: 1,
-    backgroundColor: '#fff'
-  }}>
+const DashboardView = () => (
+  <SafeAreaView
+    style={{
+      flex: 1,
+      backgroundColor: '#fff',
+    }}
+  >
     <StatusBar barStyle="light-content" backgroundColor="white" />
-    <View style={{
-      flex: 1
-    }}>
-      <Dashboard navigation={navigation} />
+    <View
+      style={{
+        flex: 1,
+      }}
+    >
+      <Dashboard />
     </View>
   </SafeAreaView>
 );
 
-const AccountsView = ({ navigation }) => (
-  <SafeAreaView>
-    <Text>Accounts info will go here</Text>
-  </SafeAreaView>
-);
-
-const CardsView = ({ navigation }) => (
-  <SafeAreaView style={{
-    flex: 1,
-    backgroundColor: '#fff'
-  }}>
-    <View style={{
-      flex: 1
-    }}>
+const CardsView = () => (
+  <SafeAreaView
+    style={{
+      flex: 1,
+      backgroundColor: '#fff',
+    }}
+  >
+    <View
+      style={{
+        flex: 1,
+      }}
+    >
       <Cards />
     </View>
   </SafeAreaView>
 );
 
-const PaymentsView = ({ navigation }) => (
-  <SafeAreaView style={{
-    flex: 1,
-    backgroundColor: '#fff'
-  }}>
-    <View style={{
-      flex: 1
-    }}>
+const PaymentsView = () => (
+  <SafeAreaView
+    style={{
+      flex: 1,
+      backgroundColor: '#fff',
+    }}
+  >
+    <View
+      style={{
+        flex: 1,
+      }}
+    >
       <Payments />
     </View>
   </SafeAreaView>
 );
+
+const AccountsView = () => (
+  <SafeAreaView
+    style={{
+      flex: 1,
+      backgroundColor: '#fff',
+    }}
+  >
+    <StatusBar barStyle="light-content" backgroundColor="white" />
+    <View
+      style={{
+        flex: 1,
+      }}
+    >
+      <Accounts />
+    </View>
+  </SafeAreaView>
+);
+
+const makeTabBarIcon = (icon, size = 24) => {
+  const TabBarIcon = ({ tintColor }) => <MaterialIcons color={tintColor} name={icon} size={size} />;
+  TabBarIcon.propTypes = {
+    tintColor: PropTypes.string.isRequired,
+  };
+  return TabBarIcon;
+};
 
 const MainApp = TabNavigator({
   DashboardView: {
     screen: DashboardView,
     navigationOptions: {
       title: 'Dashboard',
-      tabBarIcon: ({ tintColor }) => <MaterialIcons color={tintColor} name="graphic-eq" size={26} />
-    }
+      tabBarIcon: makeTabBarIcon('graphic-eq'),
+    },
   },
   Accounts: {
     screen: AccountsView,
     navigationOptions: {
       title: 'Accounts',
-      tabBarIcon: ({ tintColor }) => <MaterialIcons color={tintColor} name="account-balance" size={26} />
-    }
+      tabBarIcon: makeTabBarIcon('account-balance'),
+    },
   },
   Payments: {
     screen: PaymentsView,
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: () => ({
       title: 'Pay',
-      tabBarIcon: ({ tintColor }) => <MaterialIcons color={tintColor} name="compare-arrows" size={26} />,
+      tabBarIcon: makeTabBarIcon('compare-arrows'),
       // tabBarOnPress: () => {   navigation.navigate('Modal'); },
-    })
+    }),
   },
   CardView: {
     screen: CardsView,
     navigationOptions: {
       title: 'Manage',
-      tabBarIcon: ({ tintColor }) => <MaterialIcons color={tintColor} name="account-balance-wallet" size={26} />
-    }
-  }
+      tabBarIcon: makeTabBarIcon('account-balance-wallet'),
+    },
+  },
 });
 
 const ModalScreen = ({ navigation }) => (
@@ -92,28 +125,25 @@ const ModalScreen = ({ navigation }) => (
   </SafeAreaView>
 );
 
-const TransactionScreen = ({ navigation }) => (
-  <SafeAreaView style={{
-    flex: 1,
-    backgroundColor: '#fff'
-  }}>
-    <Transaction navigation={navigation} />
-  </SafeAreaView>
-);
+ModalScreen.propTypes = {
+  navigation: PropTypes.shape({
+    goBack: Function,
+  }).isRequired,
+};
 
-const RootNavigator = StackNavigator({
-  MainApp: {
-    screen: MainApp
+const RootNavigator = StackNavigator(
+  {
+    MainApp: {
+      screen: MainApp,
+    },
+    Modal: {
+      screen: ModalScreen,
+    },
   },
-  Modal: {
-    screen: ModalScreen
-  },
-  Transaction: {
-    screen: TransactionScreen,
+  {
+    mode: 'modal',
+    headerMode: 'none',
   }
-}, {
-    mode: 'card',
-    headerMode: 'none'
-  });
+);
 
 export default RootNavigator;
