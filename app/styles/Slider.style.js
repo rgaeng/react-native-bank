@@ -8,8 +8,8 @@ function wp(percentage) {
   return Math.round(value);
 }
 
-const slideHeight = viewportHeight * 0.36;
-const slideWidth = wp(75);
+export const slideHeight = viewportHeight * 0.36;
+export const slideWidth = wp(75);
 const itemHorizontalMargin = wp(2);
 
 export const sliderWidth = viewportWidth;
@@ -23,6 +23,7 @@ export default StyleSheet.create({
     height: slideHeight,
     paddingHorizontal: itemHorizontalMargin,
     paddingBottom: 18, // needed for shadow
+    position: 'relative',
   },
   shadow: {
     position: 'absolute',
@@ -39,9 +40,13 @@ export default StyleSheet.create({
   imageContainer: {
     flex: 1,
     marginBottom: IS_IOS ? 0 : -1, // Prevent a random Android rendering issue
-    backgroundColor: 'white',
+    // backgroundColor: 'white',
+    borderRadius: IS_IOS ? entryBorderRadius : 0,
     borderTopLeftRadius: entryBorderRadius,
     borderTopRightRadius: entryBorderRadius,
+    overflow: 'hidden',
+    backgroundColor: 'white',
+    position: 'relative',
   },
   imageContainerEven: {
     backgroundColor: 'white',
@@ -49,6 +54,7 @@ export default StyleSheet.create({
   image: {
     ...StyleSheet.absoluteFillObject,
     resizeMode: 'contain',
+    maxWidth: itemWidth,
     borderRadius: IS_IOS ? entryBorderRadius : 0,
     borderTopLeftRadius: entryBorderRadius,
     borderTopRightRadius: entryBorderRadius,
@@ -60,11 +66,11 @@ export default StyleSheet.create({
     left: 0,
     right: 0,
     height: entryBorderRadius,
-    backgroundColor: 'white',
+    // backgroundColor: 'white',
   },
-  radiusMaskEven: {
-    backgroundColor: 'black',
-  },
+  // radiusMaskEven: {
+  //   backgroundColor: 'black',
+  // },
   textContainer: {
     justifyContent: 'center',
     paddingTop: 20 - entryBorderRadius,

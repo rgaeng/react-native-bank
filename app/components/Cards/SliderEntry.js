@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { ParallaxImage } from 'react-native-snap-carousel';
-import styles from '../../styles/Slider.style';
+import styles, { slideHeight, itemWidth } from '../../styles/Slider.style';
 
 export const entryPropTypes = {
   data: PropTypes.shape({
@@ -38,6 +38,7 @@ export default class SliderEntry extends Component {
         containerStyle={[styles.imageContainer, even ? styles.imageContainerEven : {}]}
         style={styles.image}
         parallaxFactor={0.35}
+        // dimensions={dimensions}
         showSpinner
         spinnerColor={even ? 'rgba(255, 255, 255, 0.4)' : 'rgba(0, 0, 0, 0.25)'}
         {...parallaxProps}
@@ -74,7 +75,7 @@ export default class SliderEntry extends Component {
           alert(`You've clicked '${title}'`);
         }}
       >
-        <View style={styles.shadow} />
+        {/* <View style={styles.shadow} /> */}
         <View style={[styles.imageContainer, even ? styles.imageContainerEven : {}]}>
           {this.image}
           <View style={[styles.radiusMask, even ? styles.radiusMaskEven : {}]} />
