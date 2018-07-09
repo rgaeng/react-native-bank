@@ -10,14 +10,18 @@ import Insights from './app/components/Insights';
 // import { iOSColors } from 'react-native-typography';
 
 const DashboardView = ({ navigation }) => (
-  <SafeAreaView style={{
-    flex: 1,
-    backgroundColor: '#fff'
-  }}>
+  <SafeAreaView
+    style={{
+      flex: 1,
+      backgroundColor: '#fff',
+    }}
+  >
     <StatusBar barStyle="light-content" backgroundColor="white" />
-    <View style={{
-      flex: 1
-    }}>
+    <View
+      style={{
+        flex: 1,
+      }}
+    >
       <Dashboard navigation={navigation} />
     </View>
   </SafeAreaView>
@@ -30,62 +34,75 @@ const AccountsView = ({ navigation }) => (
 );
 
 const CardsView = ({ navigation }) => (
-  <SafeAreaView style={{
-    flex: 1,
-    backgroundColor: '#fff'
-  }}>
-    <View style={{
-      flex: 1
-    }}>
+  <SafeAreaView
+    style={{
+      flex: 1,
+      backgroundColor: '#fff',
+    }}
+  >
+    <View
+      style={{
+        flex: 1,
+      }}
+    >
       <Cards />
     </View>
   </SafeAreaView>
 );
 
 const PaymentsView = ({ navigation }) => (
-  <SafeAreaView style={{
-    flex: 1,
-    backgroundColor: '#fff'
-  }}>
-    <View style={{
-      flex: 1
-    }}>
+  <SafeAreaView
+    style={{
+      flex: 1,
+      backgroundColor: '#fff',
+    }}
+  >
+    <View
+      style={{
+        flex: 1,
+      }}
+    >
       <Payments />
     </View>
   </SafeAreaView>
 );
 
-const MainApp = TabNavigator({
-  DashboardView: {
-    screen: DashboardView,
-    navigationOptions: {
-      title: 'Dashboard',
-      tabBarIcon: ({ tintColor }) => <MaterialIcons color={tintColor} name="graphic-eq" size={26} />
-    }
+const MainApp = TabNavigator(
+  {
+    DashboardView: {
+      screen: DashboardView,
+      navigationOptions: {
+        title: 'Dashboard',
+        tabBarIcon: ({ tintColor }) => <MaterialIcons color={tintColor} name="graphic-eq" size={26} />,
+      },
+    },
+    Accounts: {
+      screen: AccountsView,
+      navigationOptions: {
+        title: 'Accounts',
+        tabBarIcon: ({ tintColor }) => <MaterialIcons color={tintColor} name="account-balance" size={26} />,
+      },
+    },
+    Payments: {
+      screen: PaymentsView,
+      navigationOptions: ({ navigation }) => ({
+        title: 'Pay',
+        tabBarIcon: ({ tintColor }) => <MaterialIcons color={tintColor} name="compare-arrows" size={26} />,
+        // tabBarOnPress: () => {   navigation.navigate('Modal'); },
+      }),
+    },
+    CardView: {
+      screen: CardsView,
+      navigationOptions: {
+        title: 'Manage',
+        tabBarIcon: ({ tintColor }) => <MaterialIcons color={tintColor} name="account-balance-wallet" size={26} />,
+      },
+    },
   },
-  Accounts: {
-    screen: AccountsView,
-    navigationOptions: {
-      title: 'Accounts',
-      tabBarIcon: ({ tintColor }) => <MaterialIcons color={tintColor} name="account-balance" size={26} />
-    }
-  },
-  Payments: {
-    screen: PaymentsView,
-    navigationOptions: ({ navigation }) => ({
-      title: 'Pay',
-      tabBarIcon: ({ tintColor }) => <MaterialIcons color={tintColor} name="compare-arrows" size={26} />,
-      // tabBarOnPress: () => {   navigation.navigate('Modal'); },
-    })
-  },
-  CardView: {
-    screen: CardsView,
-    navigationOptions: {
-      title: 'Manage',
-      tabBarIcon: ({ tintColor }) => <MaterialIcons color={tintColor} name="account-balance-wallet" size={26} />
-    }
+  {
+    tabBarPosition: 'bottom',
   }
-});
+);
 
 const ModalScreen = ({ navigation }) => (
   <SafeAreaView>
@@ -94,39 +111,46 @@ const ModalScreen = ({ navigation }) => (
 );
 
 const TransactionScreen = ({ navigation }) => (
-  <SafeAreaView style={{
-    flex: 1,
-    backgroundColor: '#fff'
-  }}>
+  <SafeAreaView
+    style={{
+      flex: 1,
+      backgroundColor: '#fff',
+    }}
+  >
     <Transaction navigation={navigation} />
   </SafeAreaView>
 );
 
 const InsightsScreen = ({ navigation }) => (
-  <SafeAreaView style={{
-    flex: 1,
-    backgroundColor: '#fff'
-  }}>
+  <SafeAreaView
+    style={{
+      flex: 1,
+      backgroundColor: '#fff',
+    }}
+  >
     <Insights navigation={navigation} />
   </SafeAreaView>
 );
 
-const RootNavigator = StackNavigator({
-  MainApp: {
-    screen: MainApp
+const RootNavigator = StackNavigator(
+  {
+    MainApp: {
+      screen: MainApp,
+    },
+    Modal: {
+      screen: ModalScreen,
+    },
+    Transaction: {
+      screen: TransactionScreen,
+    },
+    Insights: {
+      screen: InsightsScreen,
+    },
   },
-  Modal: {
-    screen: ModalScreen
-  },
-  Transaction: {
-    screen: TransactionScreen,
-  },
-  Insights: {
-    screen: InsightsScreen,
-  }
-}, {
+  {
     mode: 'card',
-    headerMode: 'none'
-  });
+    headerMode: 'none',
+  }
+);
 
 export default RootNavigator;
