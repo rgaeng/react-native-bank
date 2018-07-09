@@ -6,6 +6,7 @@ import Dashboard from './app/components/Dashboard';
 import Cards from './app/components/Cards/Cards';
 import Payments from './app/components/Payments/Payments';
 import Transaction from './app/components/Transaction';
+import Insights from './app/components/Insights';
 // import { iOSColors } from 'react-native-typography';
 
 const DashboardView = ({ navigation }) => (
@@ -101,6 +102,15 @@ const TransactionScreen = ({ navigation }) => (
   </SafeAreaView>
 );
 
+const InsightsScreen = ({ navigation }) => (
+  <SafeAreaView style={{
+    flex: 1,
+    backgroundColor: '#fff'
+  }}>
+    <Insights navigation={navigation} />
+  </SafeAreaView>
+);
+
 const RootNavigator = StackNavigator({
   MainApp: {
     screen: MainApp
@@ -110,6 +120,9 @@ const RootNavigator = StackNavigator({
   },
   Transaction: {
     screen: TransactionScreen,
+  },
+  Insights: {
+    screen: InsightsScreen,
   }
 }, {
     mode: 'card',

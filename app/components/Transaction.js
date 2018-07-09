@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Button, ScrollView, View, Text, StyleSheet } from "react-native";
 import { iOSUIKit, iOSColors } from 'react-native-typography';
-import styled from 'styled-components/native';
 
 import TransactionHeader from './Transaction/TransactionHeader';
 import TransactionInfo from './Transaction/TransactionInfo';
