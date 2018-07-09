@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components/native';
-import { iOSColors, iOSUIKit } from 'react-native-typography'
+import { iOSColors, iOSUIKit } from 'react-native-typography';
+import PropTypes from 'prop-types';
 
-import { Button, View, Text, StyleSheet, Dimensions, TouchableWithoutFeedback } from "react-native";
-import { Card, List, ListItem, MaterialCommunityIcons } from 'react-native-elements';
+import { View, Text } from 'react-native';
+import { Card, List, ListItem } from 'react-native-elements';
 
 const ValueWrapper = styled(View)`
   margin: 0 auto;
@@ -15,48 +16,61 @@ const ValueWrapper = styled(View)`
   align-items: flex-start;
 `;
 
-class TransactionInfo extends Component {
-  render() {
-    const { transaction } = this.props;
-    return (
-      <View>
-        <ValueWrapper>
-          <Text>RMB</Text>
-          <Text style={iOSUIKit.largeTitleEmphasized}>{transaction.amount}</Text>
-        </ValueWrapper>
+const TransactionInfo = ({ transaction: { amount, location, address } }) => (
+  <View>
+    <ValueWrapper>
+      <Text>RMB</Text>
+      <Text style={iOSUIKit.largeTitleEmphasized}>{amount}</Text>
+    </ValueWrapper>
 
-        <Card>
-          <List containerStyle={{ borderTopColor: '#fff' }} >
-            <ListItem
-              title={transaction.location}
-              leftIcon={{ name: 'map-marker-radius', type: 'material-community', color: iOSColors.yellow }}
-              subtitle={transaction.address}
-              rightTitle="4th April 5:20pm"
-              hideChevron
-              rightTitleStyle={{ marginRight: 5 }}
-              containerStyle={{ borderBottomColor: '#fff', borderTopColor: '#fff' }}
-            />
-            <ListItem
-              title="Split the bill with friends"
-              leftIcon={{ name: 'human-greeting', type: 'material-community', color: iOSColors.yellow }}
-              containerStyle={{ borderBottomColor: '#fff', borderTopColor: '#fff' }}
-            />
-            <ListItem
-              title="Add a receipt"
-              leftIcon={{ name: 'note-text', type: 'material-community', color: iOSColors.yellow }}
-              containerStyle={{ borderBottomColor: '#fff', borderTopColor: '#fff' }}
-            />
-            <ListItem
-              title="Add a note"
-              leftIcon={{ name: 'pencil-box-outline', type: 'material-community', color: iOSColors.yellow }}
-              containerStyle={{ borderBottomColor: '#fff', borderTopColor: '#fff' }}
-            />
-          </List>
-        </Card>
-        <Text style={{ textDecorationLine: 'underline', color: 'black', marginLeft: 'auto', marginRight: 'auto', marginTop: 30 }}>Something wrong with this payment?</Text>
-      </View>
-    );
-  }
-}
+    <Card>
+      <List containerStyle={{ borderTopColor: '#fff' }}>
+        <ListItem
+          title={location}
+          leftIcon={{ name: 'map-marker-radius', type: 'material-community', color: iOSColors.yellow }}
+          subtitle={address}
+          rightTitle="4th April 5:20pm"
+          hideChevron
+          rightTitleStyle={{ marginRight: 5 }}
+          containerStyle={{ borderBottomColor: '#fff', borderTopColor: '#fff' }}
+        />
+        <ListItem
+          title="Split the bill with friends"
+          leftIcon={{ name: 'human-greeting', type: 'material-community', color: iOSColors.yellow }}
+          containerStyle={{ borderBottomColor: '#fff', borderTopColor: '#fff' }}
+        />
+        <ListItem
+          title="Add a receipt"
+          leftIcon={{ name: 'note-text', type: 'material-community', color: iOSColors.yellow }}
+          containerStyle={{ borderBottomColor: '#fff', borderTopColor: '#fff' }}
+        />
+        <ListItem
+          title="Add a note"
+          leftIcon={{ name: 'pencil-box-outline', type: 'material-community', color: iOSColors.yellow }}
+          containerStyle={{ borderBottomColor: '#fff', borderTopColor: '#fff' }}
+        />
+      </List>
+    </Card>
+    <Text
+      style={{
+        textDecorationLine: 'underline',
+        color: 'black',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        marginTop: 30,
+      }}
+    >
+      Something wrong with this payment?
+    </Text>
+  </View>
+);
+
+TransactionInfo.propTypes = {
+  transaction: PropTypes.shape({
+    address: PropTypes.string,
+    location: PropTypes.string,
+    amount: PropTypes.string,
+  }).isRequired,
+};
 
 export default TransactionInfo;

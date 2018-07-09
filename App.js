@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import Dashboard from './app/components/Dashboard';
 import Cards from './app/components/Cards/Cards';
 import Payments from './app/components/Payments/Payments';
+import Transaction from './app/components/Transaction';
+import Insights from './app/components/Insights';
 import Accounts from './app/components/Accounts';
 // import { iOSColors } from 'react-native-typography';
 
@@ -127,23 +129,57 @@ const ModalScreen = ({ navigation }) => (
 
 ModalScreen.propTypes = {
   navigation: PropTypes.shape({
-    goBack: Function,
+    goBack: PropTypes.func,
   }).isRequired,
 };
 
-const RootNavigator = StackNavigator(
-  {
-    MainApp: {
-      screen: MainApp,
-    },
-    Modal: {
-      screen: ModalScreen,
-    },
-  },
-  {
-    mode: 'modal',
-    headerMode: 'none',
-  }
+const TransactionScreen = ({ navigation }) => (
+  <SafeAreaView
+    style={{
+      flex: 1,
+      backgroundColor: '#fff',
+    }}
+  >
+    <Transaction navigation={navigation} />
+  </SafeAreaView>
 );
+
+TransactionScreen.propTypes = {
+  navigation: PropTypes.shape({
+    goBack: PropTypes.func,
+  }).isRequired,
+};
+
+const InsightsScreen = ({ navigation }) => (
+  <SafeAreaView
+    style={{
+      flex: 1,
+      backgroundColor: '#fff',
+    }}
+  >
+    <Insights navigation={navigation} />
+  </SafeAreaView>
+);
+
+InsightsScreen.propTypes = {
+  navigation: PropTypes.shape({
+    goBack: PropTypes.func,
+  }).isRequired,
+};
+
+const RootNavigator = StackNavigator({
+  MainApp: {
+    screen: MainApp,
+  },
+  Modal: {
+    screen: ModalScreen,
+  },
+  Transaction: {
+    screen: TransactionScreen,
+  },
+  Insights: {
+    screen: InsightsScreen,
+  },
+});
 
 export default RootNavigator;

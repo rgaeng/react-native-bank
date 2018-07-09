@@ -249,6 +249,551 @@ export const cardActions = [
   },
 ];
 
+export const categories = {
+  Jan: [
+    {
+      title: 'Eating out',
+      icon: 'food',
+      amount: '55%',
+    },
+    {
+      title: 'transport',
+      icon: 'car',
+      amount: '20%',
+    },
+    {
+      title: 'Transport',
+      icon: 'shopping',
+      amount: '15%',
+    },
+    {
+      title: 'Utilities',
+      icon: 'power-plug',
+      amount: '10%',
+    },
+  ],
+  Feb: [
+    {
+      title: 'Eating out',
+      icon: 'food',
+      amount: '50%',
+    },
+    {
+      title: 'transport',
+      icon: 'car',
+      amount: '20%',
+    },
+    {
+      title: 'Transport',
+      icon: 'shopping',
+      amount: '20%',
+    },
+    {
+      title: 'Utilities',
+      icon: 'power-plug',
+      amount: '10%',
+    },
+  ],
+  March: [
+    {
+      title: 'Eating out',
+      icon: 'food',
+      amount: '50%',
+    },
+    {
+      title: 'transport',
+      icon: 'car',
+      amount: '20%',
+    },
+    {
+      title: 'Transport',
+      icon: 'shopping',
+      amount: '20%',
+    },
+    {
+      title: 'Utilities',
+      icon: 'power-plug',
+      amount: '10%',
+    },
+  ],
+  April: [
+    {
+      title: 'Eating out',
+      icon: 'food',
+      amount: '50%',
+    },
+    {
+      title: 'transport',
+      icon: 'car',
+      amount: '20%',
+    },
+    {
+      title: 'Transport',
+      icon: 'shopping',
+      amount: '20%',
+    },
+    {
+      title: 'Utilities',
+      icon: 'power-plug',
+      amount: '10%',
+    },
+  ],
+  May: [
+    {
+      title: 'Eating out',
+      icon: 'food',
+      amount: '50%',
+    },
+    {
+      title: 'transport',
+      icon: 'car',
+      amount: '20%',
+    },
+    {
+      title: 'Transport',
+      icon: 'shopping',
+      amount: '20%',
+    },
+    {
+      title: 'Utilities',
+      icon: 'power-plug',
+      amount: '10%',
+    },
+  ],
+  Jun: [
+    {
+      title: 'Eating out',
+      icon: 'food',
+      amount: '50%',
+    },
+    {
+      title: 'transport',
+      icon: 'car',
+      amount: '20%',
+    },
+    {
+      title: 'Transport',
+      icon: 'shopping',
+      amount: '20%',
+    },
+    {
+      title: 'Utilities',
+      icon: 'power-plug',
+      amount: '10%',
+    },
+  ],
+  July: [
+    {
+      title: 'Eating out',
+      icon: 'food',
+      amount: '50%',
+    },
+    {
+      title: 'transport',
+      icon: 'car',
+      amount: '20%',
+    },
+    {
+      title: 'Transport',
+      icon: 'shopping',
+      amount: '20%',
+    },
+    {
+      title: 'Utilities',
+      icon: 'power-plug',
+      amount: '10%',
+    },
+  ],
+  Aug: [
+    {
+      title: 'Eating out',
+      icon: 'food',
+      amount: '50%',
+    },
+    {
+      title: 'transport',
+      icon: 'car',
+      amount: '20%',
+    },
+    {
+      title: 'Transport',
+      icon: 'shopping',
+      amount: '20%',
+    },
+    {
+      title: 'Utilities',
+      icon: 'power-plug',
+      amount: '10%',
+    },
+  ],
+  Sept: [
+    {
+      title: 'Eating out',
+      icon: 'food',
+      amount: '50%',
+    },
+    {
+      title: 'transport',
+      icon: 'car',
+      amount: '20%',
+    },
+    {
+      title: 'Transport',
+      icon: 'shopping',
+      amount: '20%',
+    },
+    {
+      title: 'Utilities',
+      icon: 'power-plug',
+      amount: '10%',
+    },
+  ],
+  Oct: [
+    {
+      title: 'Eating out',
+      icon: 'food',
+      amount: '50%',
+    },
+    {
+      title: 'transport',
+      icon: 'car',
+      amount: '20%',
+    },
+    {
+      title: 'Transport',
+      icon: 'shopping',
+      amount: '20%',
+    },
+    {
+      title: 'Utilities',
+      icon: 'power-plug',
+      amount: '10%',
+    },
+  ],
+  Dec: [
+    {
+      title: 'Eating out',
+      icon: 'food',
+      amount: '50%',
+    },
+    {
+      title: 'transport',
+      icon: 'car',
+      amount: '20%',
+    },
+    {
+      title: 'Transport',
+      icon: 'shopping',
+      amount: '20%',
+    },
+    {
+      title: 'Utilities',
+      icon: 'power-plug',
+      amount: '10%',
+    },
+  ],
+};
+
+export const merchants = {
+  Jan: [
+    {
+      title: 'Hipster Coffee',
+      icon: 'coffee',
+      amount: '50%',
+    },
+    {
+      title: 'Spotify',
+      icon: 'spotify',
+      amount: '20%',
+    },
+    {
+      title: 'Amazon',
+      icon: 'amazon',
+      amount: '20%',
+    },
+    {
+      title: 'Shell Gas',
+      icon: 'gas-station',
+      amount: '5%',
+    },
+    {
+      title: 'HyperMarket',
+      icon: 'shopping',
+      amount: '5%',
+    },
+  ],
+  Feb: [
+    {
+      title: 'Hipster Coffee',
+      icon: 'coffee',
+      amount: '50%',
+    },
+    {
+      title: 'Spotify',
+      icon: 'spotify',
+      amount: '20%',
+    },
+    {
+      title: 'Amazon',
+      icon: 'amazon',
+      amount: '20%',
+    },
+    {
+      title: 'Shell Gas',
+      icon: 'gas-station',
+      amount: '5%',
+    },
+    {
+      title: 'HyperMarket',
+      icon: 'shopping',
+      amount: '5%',
+    },
+  ],
+  March: [
+    {
+      title: 'Hipster Coffee',
+      icon: 'coffee',
+      amount: '50%',
+    },
+    {
+      title: 'Spotify',
+      icon: 'spotify',
+      amount: '20%',
+    },
+    {
+      title: 'Amazon',
+      icon: 'amazon',
+      amount: '20%',
+    },
+    {
+      title: 'Shell Gas',
+      icon: 'gas-station',
+      amount: '5%',
+    },
+    {
+      title: 'HyperMarket',
+      icon: 'shopping',
+      amount: '5%',
+    },
+  ],
+  April: [
+    {
+      title: 'Hipster Coffee',
+      icon: 'coffee',
+      amount: '50%',
+    },
+    {
+      title: 'Spotify',
+      icon: 'spotify',
+      amount: '20%',
+    },
+    {
+      title: 'Amazon',
+      icon: 'amazon',
+      amount: '20%',
+    },
+    {
+      title: 'Shell Gas',
+      icon: 'gas-station',
+      amount: '5%',
+    },
+    {
+      title: 'HyperMarket',
+      icon: 'shopping',
+      amount: '5%',
+    },
+  ],
+  May: [
+    {
+      title: 'Hipster Coffee',
+      icon: 'coffee',
+      amount: '50%',
+    },
+    {
+      title: 'Spotify',
+      icon: 'spotify',
+      amount: '20%',
+    },
+    {
+      title: 'Amazon',
+      icon: 'amazon',
+      amount: '20%',
+    },
+    {
+      title: 'Shell Gas',
+      icon: 'gas-station',
+      amount: '5%',
+    },
+    {
+      title: 'HyperMarket',
+      icon: 'shopping',
+      amount: '5%',
+    },
+  ],
+  June: [
+    {
+      title: 'Hipster Coffee',
+      icon: 'coffee',
+      amount: '50%',
+    },
+    {
+      title: 'Spotify',
+      icon: 'spotify',
+      amount: '20%',
+    },
+    {
+      title: 'Amazon',
+      icon: 'amazon',
+      amount: '20%',
+    },
+    {
+      title: 'Shell Gas',
+      icon: 'gas-station',
+      amount: '5%',
+    },
+    {
+      title: 'HyperMarket',
+      icon: 'shopping',
+      amount: '5%',
+    },
+  ],
+  July: [
+    {
+      title: 'Hipster Coffee',
+      icon: 'coffee',
+      amount: '50%',
+    },
+    {
+      title: 'Spotify',
+      icon: 'spotify',
+      amount: '20%',
+    },
+    {
+      title: 'Amazon',
+      icon: 'amazon',
+      amount: '20%',
+    },
+    {
+      title: 'Shell Gas',
+      icon: 'gas-station',
+      amount: '5%',
+    },
+    {
+      title: 'HyperMarket',
+      icon: 'shopping',
+      amount: '5%',
+    },
+  ],
+  Aug: [
+    {
+      title: 'Hipster Coffee',
+      icon: 'coffee',
+      amount: '50%',
+    },
+    {
+      title: 'Spotify',
+      icon: 'spotify',
+      amount: '20%',
+    },
+    {
+      title: 'Amazon',
+      icon: 'amazon',
+      amount: '20%',
+    },
+    {
+      title: 'Shell Gas',
+      icon: 'gas-station',
+      amount: '5%',
+    },
+    {
+      title: 'HyperMarket',
+      icon: 'shopping',
+      amount: '5%',
+    },
+  ],
+  Sept: [
+    {
+      title: 'Hipster Coffee',
+      icon: 'coffee',
+      amount: '50%',
+    },
+    {
+      title: 'Spotify',
+      icon: 'spotify',
+      amount: '20%',
+    },
+    {
+      title: 'Amazon',
+      icon: 'amazon',
+      amount: '20%',
+    },
+    {
+      title: 'Shell Gas',
+      icon: 'gas-station',
+      amount: '5%',
+    },
+    {
+      title: 'HyperMarket',
+      icon: 'shopping',
+      amount: '5%',
+    },
+  ],
+  Oct: [
+    {
+      title: 'Hipster Coffee',
+      icon: 'coffee',
+      amount: '50%',
+    },
+    {
+      title: 'Spotify',
+      icon: 'spotify',
+      amount: '20%',
+    },
+    {
+      title: 'Amazon',
+      icon: 'amazon',
+      amount: '20%',
+    },
+    {
+      title: 'Shell Gas',
+      icon: 'gas-station',
+      amount: '5%',
+    },
+    {
+      title: 'HyperMarket',
+      icon: 'shopping',
+      amount: '5%',
+    },
+  ],
+  Dec: [
+    {
+      title: 'Hipster Coffee',
+      icon: 'coffee',
+      amount: '50%',
+    },
+    {
+      title: 'Spotify',
+      icon: 'spotify',
+      amount: '20%',
+    },
+    {
+      title: 'Amazon',
+      icon: 'amazon',
+      amount: '20%',
+    },
+    {
+      title: 'Shell Gas',
+      icon: 'gas-station',
+      amount: '5%',
+    },
+    {
+      title: 'HyperMarket',
+      icon: 'shopping',
+      amount: '5%',
+    },
+  ],
+};
+
 export const savingsCurrency = 'HK$';
 export const savingsAccounts = [
   {
