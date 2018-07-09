@@ -29,6 +29,7 @@ class TransactionsList extends Component {
                   rightTitleStyle={{ color: iOSColors.green, marginRight: 5 }}
                   rightTitleNumberOfLines={2}
                   containerStyle={{ borderBottomColor: '#fff', borderTopColor: '#fff' }}
+                  onPress={() => navigation.navigate('Insights')}
                 />
               ))
             }
