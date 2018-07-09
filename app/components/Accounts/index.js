@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, ScrollView, Text, StyleSheet } from 'react-native';
 import { Header, ButtonGroup, Card } from 'react-native-elements';
 import { VictoryLine, VictoryContainer } from 'victory-native';
 import { iOSColors } from 'react-native-typography';
 import { MaterialIcons } from '@expo/vector-icons';
 
-import { savingsAccounts, savingsCurrency } from '../../static/fakeData';
+import { accountsCurrency, accountsMap } from '../../static/fakeData';
 import { formatCurrency } from '../../utils';
 import PercentGraph from './graph';
 
@@ -92,122 +92,139 @@ const styles = StyleSheet.create({
   },
 });
 
-export default () => (
-  <View
-    style={{
-      flex: 1,
-    }}
-  >
-    <Header
-      rightComponent={{
-        icon: 'add',
-        color: iOSColors.black,
-      }}
-      centerComponent={{
-        text: 'Accounts',
-        style: {
-          fontSize: 22,
-          color: iOSColors.black,
-        },
-      }}
-      outerContainerStyles={{
-        backgroundColor: iOSColors.white,
-      }}
-      backgroundColor={iOSColors.white}
-    />
-    <View
-      style={{
-        flex: 1,
-      }}
-    >
-      <ButtonGroup
-        containerStyle={styles.buttonGroup}
-        buttons={['Spending', 'Savings', 'Investment']}
-        selectedIndex={1}
-      />
-      <View style={styles.centered}>
-        <Text style={[styles.small, styles.gray, styles.spaceAround]}>COMBINED SAVINGS AMOUNT</Text>
-        <View style={[styles.centerChildren, styles.centered, styles.spaceAround]}>
-          <Text style={[styles.gray, styles.spaceRight]}>{savingsCurrency}</Text>
-          <Text style={styles.large}>{formatCurrency(savingsAccounts.reduce((sum, { total }) => sum + total, 0))}</Text>
+const accountsList = Object.keys(accountsMap);
+
+export default class AccountsView extends Component {
+  state = {
+    activeAccounts: 1,
+  };
+
+  render() {
+    const { activeAccounts } = this.state;
+    const accounts = accountsMap[accountsList[activeAccounts]];
+    return (
+      <View
+        style={{
+          flex: 1,
+        }}
+      >
+        <Header
+          rightComponent={{
+            icon: 'add',
+            color: iOSColors.black,
+          }}
+          centerComponent={{
+            text: 'Accounts',
+            style: {
+              fontSize: 22,
+              color: iOSColors.black,
+            },
+          }}
+          outerContainerStyles={{
+            backgroundColor: iOSColors.white,
+          }}
+          backgroundColor={iOSColors.white}
+        />
+        <View
+          style={{
+            flex: 1,
+          }}
+        >
+          <ButtonGroup
+            containerStyle={styles.buttonGroup}
+            buttons={accountsList.map(it => `${it[0].toUpperCase()}${it.substr(1)}`)}
+            selectedIndex={activeAccounts}
+            onPress={index => this.setState({ activeAccounts: index })}
+          />
+          <View style={styles.centered}>
+            <Text style={[styles.small, styles.gray, styles.spaceAround]}>COMBINED SAVINGS AMOUNT</Text>
+            <View style={[styles.centerChildren, styles.centered, styles.spaceAround]}>
+              <Text style={[styles.gray, styles.spaceRight]}>{accountsCurrency}</Text>
+              <Text style={styles.large}>{formatCurrency(accounts.reduce((sum, { total }) => sum + total, 0))}</Text>
+            </View>
+          </View>
+          <ScrollView>
+            {accounts.map(({ name, total, goal, points, interestRate, goalText }) => (
+              <Card
+                wrapperStyle={styles.graphsWrapper}
+                containerStyle={styles.graphsWrapper}
+                key={JSON.stringify({ name, total, goal })}
+              >
+                <View style={styles.graphsSection}>
+                  {total &&
+                    goal && [
+                      <PercentGraph
+                        percent={total / goal}
+                        size={graphsSize}
+                        key="graph"
+                        color={colors.dark}
+                        activeColor={colors.light}
+                        animate={{
+                          duration: 2000,
+                          onLoad: { duration: 1000 },
+                        }}
+                      />,
+                      <View style={styles.graphsPercentage} key="text">
+                        <Text style={[styles.graphsPercentageText, styles.lightGray]}>
+                          {parseInt((total / goal) * 100, 10)}%
+                        </Text>
+                      </View>,
+                    ]}
+                  {points && (
+                    <VictoryLine
+                      style={{
+                        data: {
+                          stroke: colors.light,
+                        },
+                      }}
+                      height={100}
+                      width={100}
+                      containerComponent={<VictoryContainer responsive={false} />}
+                      animate={{
+                        duration: 2000,
+                        onLoad: { duration: 1000 },
+                      }}
+                      data={points.map(({ x, y }) => ({ x, y: 100 - y }))}
+                      padding={{ top: 0, bottom: 0 }}
+                      domain={{
+                        x: [0, 100],
+                        y: [0, 100],
+                      }}
+                      range={{
+                        x: [0, 100],
+                        y: [0, 100],
+                      }}
+                    />
+                  )}
+                </View>
+                <View style={styles.graphsText}>
+                  <Text style={[styles.gray, styles.spaceAround]}>{name}</Text>
+                  <View style={[styles.alignTopLeft, styles.spaceAround]}>
+                    <Text style={[styles.spaceRight, styles.small]}>{accountsCurrency}</Text>
+                    <Text style={styles.large}>{formatCurrency(total)}</Text>
+                  </View>
+                  {goal && (
+                    <Text style={styles.gray}>
+                      {goalText || 'Goal'}: {goal}
+                    </Text>
+                  )}
+                  {interestRate && <Text style={styles.gray}>{interestRate}% interest rate</Text>}
+                </View>
+                <View
+                  style={{
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: 5,
+                  }}
+                >
+                  <MaterialIcons color={colors.dark} name="chevron-right" size={30} />
+                </View>
+              </Card>
+            ))}
+          </ScrollView>
         </View>
       </View>
-      <ScrollView>
-        {savingsAccounts.map(({ name, total, goal, points, interestRate }) => (
-          <Card
-            wrapperStyle={styles.graphsWrapper}
-            containerStyle={styles.graphsWrapper}
-            key={JSON.stringify({ name, total, goal })}
-          >
-            <View style={styles.graphsSection}>
-              {total &&
-                goal && [
-                  <PercentGraph
-                    percent={total / goal}
-                    size={graphsSize}
-                    key="graph"
-                    color={colors.dark}
-                    activeColor={colors.light}
-                    animate={{
-                      duration: 2000,
-                      onLoad: { duration: 1000 },
-                    }}
-                  />,
-                  <View style={styles.graphsPercentage} key="text">
-                    <Text style={[styles.graphsPercentageText, styles.lightGray]}>
-                      {parseInt((total / goal) * 100, 10)}%
-                    </Text>
-                  </View>,
-                ]}
-              {points && (
-                <VictoryLine
-                  style={{
-                    data: {
-                      stroke: colors.light,
-                    },
-                  }}
-                  height={100}
-                  width={100}
-                  containerComponent={<VictoryContainer responsive={false} />}
-                  animate={{
-                    duration: 2000,
-                    onLoad: { duration: 1000 },
-                  }}
-                  data={points.map(({ x, y }) => ({ x, y: 100 - y }))}
-                  padding={{ top: 0, bottom: 0 }}
-                  domain={{
-                    x: [0, 100],
-                    y: [0, 100],
-                  }}
-                  range={{
-                    x: [0, 100],
-                    y: [0, 100],
-                  }}
-                />
-              )}
-            </View>
-            <View style={styles.graphsText}>
-              <Text style={[styles.gray, styles.spaceAround]}>{name}</Text>
-              <View style={[styles.alignTopLeft, styles.spaceAround]}>
-                <Text style={[styles.spaceRight, styles.small]}>{savingsCurrency}</Text>
-                <Text style={styles.large}>{formatCurrency(total)}</Text>
-              </View>
-              {goal && <Text style={styles.gray}>Goal: {goal}</Text>}
-              {interestRate && <Text style={styles.gray}>{interestRate}% interest rate</Text>}
-            </View>
-            <View
-              style={{
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: 5,
-              }}
-            >
-              <MaterialIcons color={colors.dark} name="chevron-right" size={30} />
-            </View>
-          </Card>
-        ))}
-      </ScrollView>
-    </View>
-  </View>
-);
+    );
+  }
+}

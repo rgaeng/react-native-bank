@@ -794,32 +794,86 @@ export const merchants = {
   ],
 };
 
-export const savingsCurrency = 'HK$';
-export const savingsAccounts = [
-  {
-    name: 'Home Deposit',
-    total: 21600,
-    goal: 30000,
-  },
-  {
-    name: 'Holiday Fund',
-    total: 3200,
-    goal: 10000,
-  },
-  {
-    name: 'Saving Tracker',
-    total: 5543,
-    interestRate: 2.5,
-    points: [
-      { x: 0, y: 20 },
-      { x: 15, y: 22 },
-      { x: 30, y: 40 },
-      { x: 35, y: 35 },
-      { x: 40, y: 45 },
-      { x: 50, y: 50 },
-      { x: 55, y: 50 },
-      { x: 60, y: 65 },
-      { x: 100, y: 80 },
-    ],
-  },
-];
+export const accountsCurrency = 'HK$';
+export const accountsMap = {
+  spending: [
+    {
+      name: 'Daily Use',
+      total: 12312,
+      goal: 15000,
+      goalText: 'Limit',
+    },
+    {
+      name: 'Monthly Indulgences',
+      total: 1231,
+      goal: 5000,
+      goalText: 'Limit',
+    },
+    {
+      name: 'Spending Tracker',
+      total: 1234,
+      points: [
+        { x: 0, y: 20 },
+        { x: 15, y: 22 },
+        { x: 30, y: 40 },
+        { x: 35, y: 35 },
+        { x: 40, y: 45 },
+        { x: 50, y: 50 },
+        { x: 55, y: 50 },
+        { x: 60, y: 65 },
+        { x: 100, y: 80 },
+      ],
+    },
+  ],
+  savings: [
+    {
+      name: 'Home Deposit',
+      total: 21600,
+      goal: 30000,
+    },
+    {
+      name: 'Holiday Fund',
+      total: 3200,
+      goal: 10000,
+    },
+    {
+      name: 'Saving Tracker',
+      total: 5543,
+      interestRate: 2.5,
+      points: [
+        { x: 0, y: 20 },
+        { x: 15, y: 22 },
+        { x: 30, y: 10 },
+        { x: 35, y: 55 },
+        { x: 40, y: 45 },
+        { x: 50, y: 50 },
+        { x: 55, y: 80 },
+        { x: 60, y: 65 },
+        { x: 100, y: 80 },
+      ],
+    },
+  ],
+  investment: [
+    {
+      name: 'Montly Investment',
+      total: 1523,
+      goal: 7500,
+      goalText: 'Limit',
+    },
+    {
+      name: 'Investment Rate',
+      total: 5000,
+      points: [
+        { x: 0, y: 20 },
+        { x: 15, y: 22 },
+        { x: 30, y: 30 },
+        { x: 35, y: 25 },
+        { x: 40, y: 30 },
+        { x: 50, y: 50 },
+        { x: 55, y: 69 },
+        { x: 60, y: 90 },
+        { x: 100, y: 80 },
+      ],
+    },
+  ],
+};
