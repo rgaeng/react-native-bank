@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components/native';
 import { withNavigation } from 'react-navigation';
 import { iOSColors, iOSUIKit } from 'react-native-typography';
-import { View, Text, StyleSheet, Dimensions, TouchableWithoutFeedback } from "react-native";
-import { Icon } from "react-native-elements";
-import { LinearGradient } from "expo";
+import { View, Text, StyleSheet, Dimensions, TouchableWithoutFeedback } from 'react-native';
+import { Icon } from 'react-native-elements';
+import { LinearGradient } from 'expo';
+import PropTypes from 'prop-types';
 import { PENDING, APPROVED, REFUSED } from '../../static/constants';
 
 const { height } = Dimensions.get('window');
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
     left: 10,
     top: 20,
     width: 50,
-    height: 50
+    height: 50,
   },
   gray: {
     color: iOSColors.gray,
@@ -25,12 +26,12 @@ const styles = StyleSheet.create({
   },
   red: {
     color: iOSColors.red,
-  }
+  },
 });
 
 const HeaderContainer = styled(View)`
   background: ${iOSColors.blue};
-  height: ${height * .15};
+  height: ${height * 0.15};
 `;
 
 const TitleContainer = styled(View)`
@@ -52,7 +53,7 @@ const StatusContainer = styled(View)`
 `;
 
 const Status = styled(Text)`
-  color: ${iOSColors.gray}
+  color: ${iOSColors.gray};
 `;
 
 const TitleIconWrapper = styled(View)`
@@ -66,38 +67,51 @@ const TitleIconWrapper = styled(View)`
   margin: 0 auto;
 `;
 
-class TransactionHeader extends Component {
-  render() {
-    const { navigation, transaction } = this.props;
-    const color = transaction.status === PENDING ? iOSColors.gray : (transaction.status === APPROVED ? iOSColors.green : iOSColors.red);
-    const style = transaction.status === PENDING ? styles.gray : (transaction.status === APPROVED ? styles.green : styles.red);
-    return (
-      <View>
-        <HeaderContainer>
-          <LinearGradient
-            colors={['rgba(0,0,0,0.8)', 'transparent']}
-            style={{ paddingTop: 50, padding: 20 }}
-          >
-            <View style={styles.backButtonContainer}>
-              <TouchableWithoutFeedback onPress={() => navigation.goBack(null)}>
-                <Icon size={30} name="arrow-left-thick" type="material-community" />
-              </TouchableWithoutFeedback>
-            </View>
-          </LinearGradient>
-        </HeaderContainer>
-        <TitleContainer>
-          <TitleIconWrapper>
-            <Icon size={40} color="white" name="coffee" type="material-community" />
-          </TitleIconWrapper>
-          <Title style={iOSUIKit.callout}>{transaction.title}</Title>
-          <StatusContainer>
-            <Icon color={color} size={15} name="alert-circle-outline" type="material-community" />
-            <Status style={style}>{transaction.status}</Status>
-          </StatusContainer>
-        </TitleContainer>
-      </View>
-    );
-  }
-}
+const TransactionHeader = ({ navigation: { goBack }, transaction: { title, status } }) => {
+  const color = {
+    [PENDING]: iOSColors.gray,
+    [APPROVED]: iOSColors.green,
+    [REFUSED]: iOSColors.red,
+  }[status];
+
+  const style = {
+    [PENDING]: styles.gray,
+    [APPROVED]: styles.green,
+    [REFUSED]: styles.red,
+  }[status];
+
+  return (
+    <View>
+      <HeaderContainer>
+        <LinearGradient colors={['rgba(0,0,0,0.8)', 'transparent']} style={{ paddingTop: 50, padding: 20 }}>
+          <View style={styles.backButtonContainer}>
+            <TouchableWithoutFeedback onPress={() => goBack(null)}>
+              <Icon size={30} name="arrow-left-thick" type="material-community" />
+            </TouchableWithoutFeedback>
+          </View>
+        </LinearGradient>
+      </HeaderContainer>
+      <TitleContainer>
+        <TitleIconWrapper>
+          <Icon size={40} color="white" name="coffee" type="material-community" />
+        </TitleIconWrapper>
+        <Title style={iOSUIKit.callout}>{title}</Title>
+        <StatusContainer>
+          <Icon color={color} size={15} name="alert-circle-outline" type="material-community" />
+          <Status style={style}>{status}</Status>
+        </StatusContainer>
+      </TitleContainer>
+    </View>
+  );
+};
+
+TransactionHeader.propTypes = {
+  navigation: PropTypes.shape({
+    goBack: PropTypes.func,
+  }).isRequired,
+  transaction: PropTypes.shape({
+    status: PropTypes.string,
+  }).isRequired,
+};
 
 export default withNavigation(TransactionHeader);
