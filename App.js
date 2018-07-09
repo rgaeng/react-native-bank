@@ -89,37 +89,42 @@ const makeTabBarIcon = (icon, size = 24) => {
   return TabBarIcon;
 };
 
-const MainApp = TabNavigator({
-  DashboardView: {
-    screen: DashboardView,
-    navigationOptions: {
-      title: 'Dashboard',
-      tabBarIcon: makeTabBarIcon('graphic-eq'),
+const MainApp = TabNavigator(
+  {
+    DashboardView: {
+      screen: DashboardView,
+      navigationOptions: {
+        title: 'Dashboard',
+        tabBarIcon: makeTabBarIcon('graphic-eq'),
+      },
+    },
+    Accounts: {
+      screen: AccountsView,
+      navigationOptions: {
+        title: 'Accounts',
+        tabBarIcon: makeTabBarIcon('account-balance'),
+      },
+    },
+    Payments: {
+      screen: PaymentsView,
+      navigationOptions: () => ({
+        title: 'Pay',
+        tabBarIcon: makeTabBarIcon('compare-arrows'),
+        // tabBarOnPress: () => {   navigation.navigate('Modal'); },
+      }),
+    },
+    CardView: {
+      screen: CardsView,
+      navigationOptions: {
+        title: 'Manage',
+        tabBarIcon: makeTabBarIcon('account-balance-wallet'),
+      },
     },
   },
-  Accounts: {
-    screen: AccountsView,
-    navigationOptions: {
-      title: 'Accounts',
-      tabBarIcon: makeTabBarIcon('account-balance'),
-    },
-  },
-  Payments: {
-    screen: PaymentsView,
-    navigationOptions: () => ({
-      title: 'Pay',
-      tabBarIcon: makeTabBarIcon('compare-arrows'),
-      // tabBarOnPress: () => {   navigation.navigate('Modal'); },
-    }),
-  },
-  CardView: {
-    screen: CardsView,
-    navigationOptions: {
-      title: 'Manage',
-      tabBarIcon: makeTabBarIcon('account-balance-wallet'),
-    },
-  },
-});
+  {
+    tabBarPosition: 'bottom',
+  }
+);
 
 const ModalScreen = ({ navigation }) => (
   <SafeAreaView>
