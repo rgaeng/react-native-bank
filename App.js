@@ -9,6 +9,7 @@ import Payments from './app/components/Payments/Payments';
 import Transaction from './app/components/Transaction';
 import Insights from './app/components/Insights';
 import Accounts from './app/components/Accounts';
+import SendMoney from './app/components/SendMoney';
 // import { iOSColors } from 'react-native-typography';
 
 const DashboardView = () => (
@@ -172,6 +173,23 @@ InsightsScreen.propTypes = {
   }).isRequired,
 };
 
+const SendMoneyScreen = ({ navigation }) => (
+  <SafeAreaView
+    style={{
+      flex: 1,
+      backgroundColor: '#fff',
+    }}
+  >
+    <SendMoney navigation={navigation} />
+  </SafeAreaView>
+);
+
+InsightsScreen.propTypes = {
+  navigation: PropTypes.shape({
+    goBack: PropTypes.func,
+  }).isRequired,
+};
+
 const RootNavigator = StackNavigator({
   MainApp: {
     screen: MainApp,
@@ -185,6 +203,11 @@ const RootNavigator = StackNavigator({
   Insights: {
     screen: InsightsScreen,
   },
-});
+  SendMoney: {
+    screen: SendMoneyScreen,
+  }
+}, {
+    headerMode: 'none',
+  });
 
 export default RootNavigator;
