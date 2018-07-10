@@ -74,7 +74,7 @@ export default class SliderEntry extends Component {
           alert(`You've clicked '${title}'`);
         }}
       >
-        <View style={styles.shadow} />
+        {/* <View style={styles.shadow} /> */}
         <View style={[styles.imageContainer, even ? styles.imageContainerEven : {}]}>
           {this.image}
           <View style={[styles.radiusMask, even ? styles.radiusMaskEven : {}]} />

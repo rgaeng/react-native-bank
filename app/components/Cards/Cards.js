@@ -3,7 +3,7 @@ import { Card, Icon, ButtonGroup, List, ListItem } from 'react-native-elements';
 import { iOSColors } from 'react-native-typography';
 import PropTypes from 'prop-types';
 import Carousel from 'react-native-snap-carousel';
-import React from 'react';
+import React, { Component } from 'react';
 import SliderEntry, { entryPropTypes } from './SliderEntry';
 import { sliderWidth, itemWidth } from '../../styles/Slider.style';
 import styles from '../../styles/index.style';
@@ -37,57 +37,70 @@ renderItemWithParallax.defaultProps = {
   item: {},
 };
 
-export default () => (
-  <ScrollView>
-    <Carousel
-      data={cards}
-      renderItem={renderItemWithParallax}
-      sliderWidth={sliderWidth}
-      itemWidth={itemWidth}
-      hasParallaxImages
-      firstItem={1}
-      inactiveSlideScale={0.94}
-      inactiveSlideOpacity={0.7}
-      containerCustomStyle={styles.slider}
-      contentContainerCustomStyle={styles.sliderContentContainer}
-      loop
-      loopClonesPerSide={2}
-    />
+export default class CardsView extends Component {
+  state = cardActions.reduce(
+    (prev, it, index) => ({
+      ...prev,
+      [`action-${index}`]: it.switched,
+    }),
+    {}
+  );
 
-    <View>
-      <ButtonGroup
-        buttons={[{ element: ShowPin }, { element: FreezeCard }]}
-        containerStyle={{
-          height: 100,
-          marginLeft: 15,
-          marginRight: 15,
-        }}
-      />
-    </View>
+  render() {
+    return (
+      <ScrollView>
+        <Carousel
+          data={cards}
+          renderItem={renderItemWithParallax}
+          sliderWidth={sliderWidth}
+          itemWidth={itemWidth}
+          hasParallaxImages
+          firstItem={1}
+          inactiveSlideScale={0.94}
+          inactiveSlideOpacity={0.7}
+          containerCustomStyle={styles.slider}
+          contentContainerCustomStyle={styles.sliderContentContainer}
+          loop
+          loopClonesPerSide={2}
+        />
 
-    <Card>
-      <List
-        containerStyle={{
-          borderTopColor: '#fff',
-        }}
-      >
-        {cardActions.map(item => (
-          <ListItem
-            key={JSON.stringify(item)}
-            title={item.title}
-            titleStyle={{
-              fontSize: 14,
-            }}
-            hideChevron
-            switchButton
-            switched={item.switched}
+        <View>
+          <ButtonGroup
+            buttons={[{ element: ShowPin }, { element: FreezeCard }]}
             containerStyle={{
-              borderBottomColor: '#fff',
-              borderTopColor: '#fff',
+              height: 100,
+              marginLeft: 15,
+              marginRight: 15,
             }}
           />
-        ))}
-      </List>
-    </Card>
-  </ScrollView>
-);
+        </View>
+
+        <Card>
+          <List
+            containerStyle={{
+              borderTopColor: '#fff',
+            }}
+          >
+            {cardActions.map((item, index) => (
+              <ListItem
+                key={JSON.stringify(item)}
+                title={item.title}
+                titleStyle={{
+                  fontSize: 14,
+                }}
+                hideChevron
+                switchButton
+                switched={this.state[`action-${index}`]} // eslint-disable-line react/destructuring-assignment
+                containerStyle={{
+                  borderBottomColor: '#fff',
+                  borderTopColor: '#fff',
+                }}
+                onSwitch={value => this.setState({ [`action-${index}`]: value })}
+              />
+            ))}
+          </List>
+        </Card>
+      </ScrollView>
+    );
+  }
+}
