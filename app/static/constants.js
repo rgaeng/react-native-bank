@@ -1,3 +1,5 @@
-export const PENDING = 'Pending';
-export const APPROVED = 'Approved';
-export const REFUSED = 'Refused';
+module.exports = {
+  PENDING: 'Pending',
+  APPROVED: 'Approved',
+  REFUSED: 'Refused',
+};
