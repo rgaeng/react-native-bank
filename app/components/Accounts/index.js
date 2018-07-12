@@ -4,11 +4,12 @@ import { Header, ButtonGroup, Card } from 'react-native-elements';
 import { VictoryLine, VictoryContainer } from 'victory-native';
 import { iOSColors } from 'react-native-typography';
 import { MaterialIcons } from '@expo/vector-icons';
+import PropTypes from 'prop-types';
 import debug from 'debug';
 
-import { RC_API_ENDPOINT } from 'react-native-dotenv';
+import { observer } from 'mobx-react';
 
-import { accountsCurrency, accountsMap } from '../../static/fakeData';
+// import { accountsCurrency } from '../../static/fakeData';
 import { formatCurrency } from '../../utils';
 import PercentGraph from './graph';
 
@@ -98,24 +99,27 @@ const styles = StyleSheet.create({
   },
 });
 
-const accountsList = Object.keys(accountsMap);
+const accountsList = ['spending', 'savings', 'investments'];
 
+@observer
 export default class AccountsView extends Component {
+  static propTypes = {
+    store: PropTypes.shape({
+      data: PropTypes.shape({}),
+    }).isRequired,
+  };
+
   state = {
     activeAccounts: 1,
   };
 
-  componentWillMount() {
-    const path = `${RC_API_ENDPOINT}users/1/accounts`;
-    log('Requesting %s (Endpoint %s)', path, RC_API_ENDPOINT);
-    fetch(path)
-      .then((...args) => log('Success', args))
-      .catch((...args) => error('Error', args));
-  }
-
   render() {
     const { activeAccounts } = this.state;
-    const accounts = accountsMap[accountsList[activeAccounts]];
+    const {
+      store: { data },
+    } = this.props;
+    const accountType = accountsList[activeAccounts];
+    const accounts = data ? data.filter(({ type }) => type === accountType) : [];
     return (
       <View
         style={{
@@ -151,14 +155,18 @@ export default class AccountsView extends Component {
             onPress={index => this.setState({ activeAccounts: index })}
           />
           <View style={styles.centered}>
-            <Text style={[styles.small, styles.gray, styles.spaceAround]}>COMBINED SAVINGS AMOUNT</Text>
+            <Text style={[styles.small, styles.gray, styles.spaceAround]}>
+              COMBINED {accountType.toUpperCase()} AMOUNT
+            </Text>
             <View style={[styles.centerChildren, styles.centered, styles.spaceAround]}>
-              <Text style={[styles.gray, styles.spaceRight]}>{accountsCurrency}</Text>
-              <Text style={styles.large}>{formatCurrency(accounts.reduce((sum, { total }) => sum + total, 0))}</Text>
+              {/* <Text style={[styles.gray, styles.spaceRight]}>{accountsCurrency}</Text> */}
+              <Text style={styles.large}>
+                {formatCurrency(accounts.reduce((sum, { total }) => sum + parseFloat(total, 10), 0).toFixed(2))}
+              </Text>
             </View>
           </View>
           <ScrollView>
-            {accounts.map(({ name, total, goal, points, interestRate, goalText }) => (
+            {accounts.map(({ name, total, goal, points, interestRate, currency }) => (
               <Card
                 wrapperStyle={styles.graphsWrapper}
                 containerStyle={styles.graphsWrapper}
@@ -214,12 +222,12 @@ export default class AccountsView extends Component {
                 <View style={styles.graphsText}>
                   <Text style={[styles.gray, styles.spaceAround]}>{name}</Text>
                   <View style={[styles.alignTopLeft, styles.spaceAround]}>
-                    <Text style={[styles.spaceRight, styles.small]}>{accountsCurrency}</Text>
+                    <Text style={[styles.spaceRight, styles.small]}>{currency}</Text>
                     <Text style={styles.large}>{formatCurrency(total)}</Text>
                   </View>
                   {goal && (
                     <Text style={styles.gray}>
-                      {goalText || 'Goal'}: {goal}
+                      {accountType === 'savings' ? 'Goal' : 'Limit'}: {goal}
                     </Text>
                   )}
                   {interestRate && <Text style={styles.gray}>{interestRate}% interest rate</Text>}

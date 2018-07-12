@@ -1,9 +1,10 @@
-/* eslint-disable import/first,import/order */
+/* eslint-disable import/first,import/order,react/prefer-stateless-function */
 
 import './debugging';
 
-import React from 'react';
+import React, { Component } from 'react';
 import { Button, View, SafeAreaView, StatusBar } from 'react-native';
+import { Provider } from 'mobx-react';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import { MaterialIcons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
@@ -15,6 +16,7 @@ import Transaction from './app/components/Transaction';
 import Insights from './app/components/Insights';
 import Accounts from './app/components/Accounts';
 import SendMoney from './app/components/SendMoney';
+import api from './app/mobx/api';
 
 // import { iOSColors } from 'react-native-typography';
 
@@ -83,7 +85,7 @@ const AccountsView = () => (
         flex: 1,
       }}
     >
-      <Accounts />
+      <Accounts store={api.request('/users/1/accounts')} />
     </View>
   </SafeAreaView>
 );
@@ -219,4 +221,16 @@ const RootNavigator = StackNavigator(
   }
 );
 
-export default RootNavigator;
+export default class RootComponent extends Component {
+  render() {
+    return (
+      <Provider
+        stores={{
+          api,
+        }}
+      >
+        <RootNavigator />
+      </Provider>
+    );
+  }
+}
