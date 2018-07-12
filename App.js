@@ -1,8 +1,14 @@
-import React from 'react';
+/* eslint-disable import/first,import/order,react/prefer-stateless-function */
+
+import './debugging';
+
+import React, { Component } from 'react';
 import { Button, View, SafeAreaView, StatusBar } from 'react-native';
+import { Provider } from 'mobx-react';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import { MaterialIcons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
+
 import Dashboard from './app/components/Dashboard';
 import Cards from './app/components/Cards/Cards';
 import Payments from './app/components/Payments/Payments';
@@ -10,6 +16,8 @@ import Transaction from './app/components/Transaction';
 import Insights from './app/components/Insights';
 import Accounts from './app/components/Accounts';
 import SendMoney from './app/components/SendMoney';
+import api from './app/mobx/api';
+
 // import { iOSColors } from 'react-native-typography';
 
 const DashboardView = () => (
@@ -77,7 +85,7 @@ const AccountsView = () => (
         flex: 1,
       }}
     >
-      <Accounts />
+      <Accounts store={api.request('/users/1/accounts')} />
     </View>
   </SafeAreaView>
 );
@@ -184,30 +192,45 @@ const SendMoneyScreen = ({ navigation }) => (
   </SafeAreaView>
 );
 
-InsightsScreen.propTypes = {
+SendMoneyScreen.propTypes = {
   navigation: PropTypes.shape({
     goBack: PropTypes.func,
   }).isRequired,
 };
 
-const RootNavigator = StackNavigator({
-  MainApp: {
-    screen: MainApp,
+const RootNavigator = StackNavigator(
+  {
+    MainApp: {
+      screen: MainApp,
+    },
+    Modal: {
+      screen: ModalScreen,
+    },
+    Transaction: {
+      screen: TransactionScreen,
+    },
+    Insights: {
+      screen: InsightsScreen,
+    },
+    SendMoney: {
+      screen: SendMoneyScreen,
+    },
   },
-  Modal: {
-    screen: ModalScreen,
-  },
-  Transaction: {
-    screen: TransactionScreen,
-  },
-  Insights: {
-    screen: InsightsScreen,
-  },
-  SendMoney: {
-    screen: SendMoneyScreen,
-  }
-}, {
+  {
     headerMode: 'none',
-  });
+  }
+);
 
-export default RootNavigator;
+export default class RootComponent extends Component {
+  render() {
+    return (
+      <Provider
+        stores={{
+          api,
+        }}
+      >
+        <RootNavigator />
+      </Provider>
+    );
+  }
+}

@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv-expand')(require('dotenv').config());
 
 const debug = require('debug');
 
@@ -32,6 +32,18 @@ debugLog('Hooked Application Middlewares');
 
 server.use(router);
 debugLog('Hooked Router');
+
+debugLog(
+  Object.keys(process.env)
+    .filter(it => it.startsWith('RC_'))
+    .reduce(
+      (prev, it) => ({
+        ...prev,
+        [it]: process.env[it],
+      }),
+      {}
+    )
+);
 
 const PORT = process.env.RC_PORT || process.env.PORT || 3000;
 

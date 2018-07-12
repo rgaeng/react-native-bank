@@ -26,7 +26,8 @@ module.exports = {
     name: accountName(),
     total: amount(),
     goal: amount(),
-    currency: `${currencyName()}${currencySymbol()}`,
+    currency: currencySymbol(),
+    currencyName: currencyName(),
     type: getRandom(types),
   }),
 
