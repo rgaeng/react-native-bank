@@ -52,7 +52,7 @@ const initialGenerator = () => {
     const accounts = generateAccountsForUser(id, lastAccountId);
     data.accounts = [...data.accounts, ...accounts];
 
-    log('Generated all accounts for user %d, now creating transactions for all %d spending accounts', id);
+    log('Generated all accounts for user %d, now creating transactions for all spending accounts', id);
 
     const transactions = generateTransactionsForUserSpendingAccounts(id, accounts, lastTransactionId);
     data.transactions = [...data.transactions, ...transactions];

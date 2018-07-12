@@ -4,10 +4,16 @@ import { Header, ButtonGroup, Card } from 'react-native-elements';
 import { VictoryLine, VictoryContainer } from 'victory-native';
 import { iOSColors } from 'react-native-typography';
 import { MaterialIcons } from '@expo/vector-icons';
+import debug from 'debug';
+
+import { RC_API_ENDPOINT } from 'react-native-dotenv';
 
 import { accountsCurrency, accountsMap } from '../../static/fakeData';
 import { formatCurrency } from '../../utils';
 import PercentGraph from './graph';
+
+const log = debug('log:accounts');
+const error = debug('error:accounts');
 
 const graphsSize = 100;
 const colors = {
@@ -98,6 +104,14 @@ export default class AccountsView extends Component {
   state = {
     activeAccounts: 1,
   };
+
+  componentWillMount() {
+    const path = `${RC_API_ENDPOINT}users/1/accounts`;
+    log('Requesting %s (Endpoint %s)', path, RC_API_ENDPOINT);
+    fetch(path)
+      .then((...args) => log('Success', args))
+      .catch((...args) => error('Error', args));
+  }
 
   render() {
     const { activeAccounts } = this.state;

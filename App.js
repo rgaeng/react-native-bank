@@ -1,8 +1,13 @@
+/* eslint-disable import/first,import/order */
+
+import './debugging';
+
 import React from 'react';
 import { Button, View, SafeAreaView, StatusBar } from 'react-native';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import { MaterialIcons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
+
 import Dashboard from './app/components/Dashboard';
 import Cards from './app/components/Cards/Cards';
 import Payments from './app/components/Payments/Payments';
@@ -10,6 +15,7 @@ import Transaction from './app/components/Transaction';
 import Insights from './app/components/Insights';
 import Accounts from './app/components/Accounts';
 import SendMoney from './app/components/SendMoney';
+
 // import { iOSColors } from 'react-native-typography';
 
 const DashboardView = () => (
@@ -184,30 +190,33 @@ const SendMoneyScreen = ({ navigation }) => (
   </SafeAreaView>
 );
 
-InsightsScreen.propTypes = {
+SendMoneyScreen.propTypes = {
   navigation: PropTypes.shape({
     goBack: PropTypes.func,
   }).isRequired,
 };
 
-const RootNavigator = StackNavigator({
-  MainApp: {
-    screen: MainApp,
+const RootNavigator = StackNavigator(
+  {
+    MainApp: {
+      screen: MainApp,
+    },
+    Modal: {
+      screen: ModalScreen,
+    },
+    Transaction: {
+      screen: TransactionScreen,
+    },
+    Insights: {
+      screen: InsightsScreen,
+    },
+    SendMoney: {
+      screen: SendMoneyScreen,
+    },
   },
-  Modal: {
-    screen: ModalScreen,
-  },
-  Transaction: {
-    screen: TransactionScreen,
-  },
-  Insights: {
-    screen: InsightsScreen,
-  },
-  SendMoney: {
-    screen: SendMoneyScreen,
-  }
-}, {
+  {
     headerMode: 'none',
-  });
+  }
+);
 
 export default RootNavigator;
