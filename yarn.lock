@@ -1234,8 +1234,8 @@ babel-plugin-check-es2015-constants@^6.5.0, babel-plugin-check-es2015-constants@
     babel-runtime "^6.22.0"
 
 "babel-plugin-dotenv@https://github.com/sabinmarcu/babel-plugin-dotenv.git":
-  version "0.1.4"
-  resolved "https://github.com/sabinmarcu/babel-plugin-dotenv.git#14e50d1374c337addee0aece40c9857f0d78df27"
+  version "0.1.8"
+  resolved "https://github.com/sabinmarcu/babel-plugin-dotenv.git#04ec52e58b6bfa92c0208d259d2ea1183b5e012a"
   dependencies:
     dotenv "^2.0.0"
     dotenv-expand "https://github.com/sabinmarcu/dotenv-expand.git"
@@ -2704,8 +2704,8 @@ dot-prop@^4.1.0:
     is-obj "^1.0.0"
 
 "dotenv-expand@https://github.com/sabinmarcu/dotenv-expand.git":
-  version "4.2.1"
-  resolved "https://github.com/sabinmarcu/dotenv-expand.git#e5424a2a4377715f8d8c8f6b3710977d7089c22c"
+  version "4.2.6"
+  resolved "https://github.com/sabinmarcu/dotenv-expand.git#9427963ae3080ba2d8bedf8d75b1a84e671de897"
 
 dotenv@^2.0.0:
   version "2.0.0"

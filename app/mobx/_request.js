@@ -34,6 +34,7 @@ export class RequestStore {
     this.url = api.url;
     AsyncStorage.getItem(requestToKey(this.url), data => {
       this.localData = JSON.parse(data);
+      log('Retreived data from AsyncStorage', this.localData);
       this.refresh();
     });
   }
@@ -55,6 +56,7 @@ export class RequestStore {
       if (!data) {
         throw Error('No data obtained');
       }
+      log('Saving data to AsnycStorage', data);
       AsyncStorage.setItem(requestToKey(this.url), JSON.stringify(data));
       this.remoteData = data;
     } catch (e) {
@@ -66,7 +68,7 @@ export class RequestStore {
 
   @computed
   get data() {
-    return this.remoteData || this.localData;
+    return (this.remoteData && this.remoteData.length > 0 && this.remoteData) || this.localData || [];
   }
 }
 

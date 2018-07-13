@@ -35,7 +35,7 @@ debugLog('Hooked Router');
 
 debugLog(
   Object.keys(process.env)
-    .filter(it => it.startsWith('RC_'))
+    .filter(it => it.startsWith('RC_') || it.startsWith('IP'))
     .reduce(
       (prev, it) => ({
         ...prev,
