@@ -14,7 +14,7 @@ import { formatCurrency } from '../../utils';
 import PercentGraph from './graph';
 
 const log = debug('log:accounts');
-const error = debug('error:accounts');
+// const error = debug('error:accounts');
 
 const graphsSize = 100;
 const colors = {
@@ -119,6 +119,8 @@ export default class AccountsView extends Component {
       store: { data },
     } = this.props;
     const accountType = accountsList[activeAccounts];
+    log(data);
+    log(data.filter);
     const accounts = data ? data.filter(({ type }) => type === accountType) : [];
     return (
       <View
