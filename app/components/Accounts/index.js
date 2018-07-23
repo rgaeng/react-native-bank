@@ -5,7 +5,7 @@ import { VictoryLine, VictoryContainer } from 'victory-native';
 import { iOSColors } from 'react-native-typography';
 import { MaterialIcons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
-import debug from 'debug';
+// import debug from 'debug';
 
 import { observer } from 'mobx-react';
 
@@ -13,7 +13,7 @@ import { observer } from 'mobx-react';
 import { formatCurrency } from '../../utils';
 import PercentGraph from './graph';
 
-const log = debug('log:accounts');
+// const log = debug('log:accounts');
 // const error = debug('error:accounts');
 
 const graphsSize = 100;
@@ -105,7 +105,7 @@ const accountsList = ['spending', 'savings', 'investments'];
 export default class AccountsView extends Component {
   static propTypes = {
     store: PropTypes.shape({
-      data: PropTypes.shape({}),
+      data: PropTypes.array,
     }).isRequired,
   };
 
@@ -119,8 +119,6 @@ export default class AccountsView extends Component {
       store: { data },
     } = this.props;
     const accountType = accountsList[activeAccounts];
-    log(data);
-    log(data.filter);
     const accounts = data ? data.filter(({ type }) => type === accountType) : [];
     return (
       <View

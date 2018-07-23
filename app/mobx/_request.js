@@ -7,6 +7,7 @@ import { REQUEST_STATES } from './_config';
 
 const log = debug('log:mobx:request');
 const error = debug('error:mobx:request');
+const debugLog = debug('debug:mobx:request');
 
 const prefix = 'request-';
 export const requestToKey = request => `${prefix}${request}`;
@@ -21,10 +22,13 @@ export class Request {
     return fetch(this.url, this.options)
       .then(data => data.json())
       .then(args => {
-        log('Fetched %s successfully', this.url, args);
+        log(`Fetched ${this.url} successfully`, args.length);
+        debugLog(args);
         return args;
       })
-      .catch((...args) => error(`Error has occurred while fetching %s`, this.url, this.options, args));
+      .catch(
+        (...args) => error(`Error has occurred while fetching ${this.url}`, this.options, args.length) || debugLog(args)
+      );
   }
 }
 
@@ -40,9 +44,7 @@ export class RequestStore {
   }
 
   @observable remoteData;
-
   @observable localData;
-
   @observable error = null;
 
   @observable state = REQUEST_STATES.IDLE;
@@ -51,6 +53,7 @@ export class RequestStore {
   refresh = async () => {
     try {
       this.state = REQUEST_STATES.REQUESTING;
+      log('Requesting %s', this.url);
       const data = await this.api.fetch();
       this.state = REQUEST_STATES.DONE;
       if (!data) {
@@ -60,7 +63,7 @@ export class RequestStore {
       AsyncStorage.setItem(requestToKey(this.url), JSON.stringify(data));
       this.remoteData = data;
     } catch (e) {
-      error(e);
+      log(e);
       this.error = error;
       this.state = REQUEST_STATES.FAIL;
     }

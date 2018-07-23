@@ -11,8 +11,25 @@
             "replacedModuleName": "react-native-dotenv",
             "matchPrefix": "RC_",
             "includeProcessEnv": {
-              "DEBUG": "log:*",
+              "DEBUG": "log:*,error:*",
               "NODE_ENV": "development"
+            }
+          }
+        ]
+      ]
+    },
+    "production": {
+      "plugins": [
+        "transform-react-jsx-source",
+        "transform-decorators-legacy",
+        [
+          "babel-plugin-dotenv",
+          {
+            "replacedModuleName": "react-native-dotenv",
+            "matchPrefix": "RC_",
+            "includeProcessEnv": {
+              "DEBUG": "error:*",
+              "NODE_ENV": "production"
             }
           }
         ]
