@@ -6,8 +6,7 @@
     "orientation": "portrait",
     "primaryColor": "#cccccc",
     "name": "Revonzo",
-    "description":
-      "This demonstrates a bunch of the native components that you can use in React Native core and Expo.",
+    "description": "This demonstrates a bunch of the native components that you can use in React Native core and Expo.",
     "slug": "revonzo-bank"
   }
 }
