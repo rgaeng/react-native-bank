@@ -1,16 +1,16 @@
-import { DEBUG, NODE_ENV } from 'react-native-dotenv';
+// import { DEBUG, NODE_ENV } from 'react-native-dotenv';
 
 import debug from 'debug';
 
-let level;
-if (DEBUG) {
-  level = DEBUG;
-} else if (NODE_ENV === 'production') {
-  level = '-*';
-} else {
-  level = 'log:*,error:*';
-}
-debug.enable(level);
+// let level;
+// if (DEBUG) {
+//   level = DEBUG;
+// } else if (NODE_ENV === 'production') {
+//   level = '-*';
+// } else {
+//   level = 'log:*,error:*';
+// }
+debug.enable('log:*,error:*');
 
 debug('log:debug')('Logging Enabled');
 debug('error:debug')('Error logging enabled');

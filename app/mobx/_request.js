@@ -2,8 +2,7 @@ import { observable, computed, action } from 'mobx';
 import { AsyncStorage } from 'react-native';
 import debug from 'debug';
 
-import { RC_API_ENDPOINT } from 'react-native-dotenv';
-import { REQUEST_STATES } from './_config';
+import { REQUEST_STATES, RC_API_ENDPOINT } from './_config';
 
 const log = debug('log:mobx:request');
 const error = debug('error:mobx:request');
