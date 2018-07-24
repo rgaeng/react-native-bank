@@ -37,10 +37,10 @@
     ]
   },
   "dependencies": {
-    "babel-plugin-dotenv": "https://github.com/sabinmarcu/babel-plugin-dotenv.git",
+    "es6-symbol": "^3.1.1",
     "expo": "^27.0.1",
-    "mobx": "^5.0.3",
-    "mobx-react": "^5.2.3",
+    "mobx": "^4.0.0",
+    "mobx-react": "5.0.0",
     "nachos-ui": "^0.2.0-beta.1",
     "react": "16.3.1",
     "react-native": "~0.55.2",

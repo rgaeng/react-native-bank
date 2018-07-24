@@ -1,5 +1,6 @@
 /* eslint-disable import/first,import/order,react/prefer-stateless-function */
 
+import 'es6-symbol/implement';
 import './debugging';
 
 import React, { Component } from 'react';
