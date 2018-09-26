@@ -5,6 +5,7 @@
   "devDependencies": {
     "babel-eslint": "^8.2.5",
     "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "babel-preset-react-native-stage-0": "^1.0.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-config-prettier": "^2.9.0",
@@ -12,23 +13,21 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.10.0",
-    "jest-expo": "~27.0.0",
+    "jest": "^23.6.0",
+    "jest-react-native": "^18.0.0",
     "prettier": "^1.13.7",
-    "react-native-scripts": "1.14.0",
     "react-test-renderer": "16.3.1"
   },
-  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
     "precommit": "lint-staged",
-    "start": "react-native-scripts start",
-    "eject": "react-native-scripts eject",
-    "android": "react-native-scripts android",
-    "ios": "react-native-scripts ios",
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
     "test": "jest",
     "envtest": "node envtest"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "react-native"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [
@@ -38,7 +37,6 @@
   },
   "dependencies": {
     "es6-symbol": "^3.1.1",
-    "expo": "^27.0.1",
     "mobx": "^4.0.0",
     "mobx-react": "5.0.0",
     "nachos-ui": "^0.2.0-beta.1",

@@ -3,7 +3,6 @@ import { View, ScrollView, Text, StyleSheet } from 'react-native';
 import { Header, ButtonGroup, Card } from 'react-native-elements';
 import { VictoryLine, VictoryContainer } from 'victory-native';
 import { iOSColors } from 'react-native-typography';
-import { MaterialIcons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 // import debug from 'debug';
 
@@ -240,7 +239,7 @@ export default class AccountsView extends Component {
                     padding: 5,
                   }}
                 >
-                  <MaterialIcons color={colors.dark} name="chevron-right" size={30} />
+                  <Text>Chevron</Text>
                 </View>
               </Card>
             ))}
