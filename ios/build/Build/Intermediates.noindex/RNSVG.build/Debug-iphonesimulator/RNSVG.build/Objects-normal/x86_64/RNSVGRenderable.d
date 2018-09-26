@@ -27,4 +27,13 @@ dependencies: \
   /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Products/Debug-iphonesimulator/include/React/UIView+React.h \
   /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTComponent.h \
   /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native-svg/ios/Elements/RNSVGSvgView.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native-svg/ios/RNSVGContainer.h
+  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native-svg/ios/RNSVGContainer.h \
+  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native-svg/ios/Elements/RNSVGClipPath.h \
+  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native-svg/ios/Elements/RNSVGGroup.h \
+  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native-svg/ios/Elements/RNSVGPath.h \
+  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native-svg/ios/Text/RNSVGGlyphContext.h \
+  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native-svg/ios/Text/RNSVGFontData.h \
+  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native-svg/ios/Text/RNSVGTextProperties.h \
+  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native-svg/ios/Text/RNSVGPropHelper.h \
+  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native-svg/ios/Elements/RNSVGMask.h \
+  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native-svg/ios/Utils/RNSVGViewBox.h

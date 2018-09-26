@@ -33,4 +33,5 @@ dependencies: \
   /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native-svg/ios/Text/RNSVGGlyphContext.h \
   /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native-svg/ios/Text/RNSVGFontData.h \
   /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native-svg/ios/Text/RNSVGTextProperties.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native-svg/ios/Text/RNSVGPropHelper.h
+  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native-svg/ios/Text/RNSVGPropHelper.h \
+  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native-svg/ios/Elements/RNSVGClipPath.h

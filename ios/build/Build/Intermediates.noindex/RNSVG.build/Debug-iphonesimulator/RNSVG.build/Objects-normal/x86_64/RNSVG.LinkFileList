@@ -1,8 +1,10 @@
 /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGBezierElement.o
 /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGTextManager.o
 /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGImage.o
+/Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGPattern.o
 /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGRect.o
 /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGCircleManager.o
+/Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGMask.o
 /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGLinearGradient.o
 /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGPercentageConverter.o
 /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGEllipse.o
@@ -38,11 +40,13 @@
 /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGSymbolManager.o
 /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGPathParser.o
 /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGGroupManager.o
+/Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGPatternManager.o
 /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGTextPathManager.o
 /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGTSpanManager.o
 /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGPropHelper.o
 /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGViewBox.o
 /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGTSpan.o
+/Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGMaskManager.o
 /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGLine.o
 /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGPainterBrush.o
 /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Intermediates.noindex/RNSVG.build/Debug-iphonesimulator/RNSVG.build/Objects-normal/x86_64/RNSVGSvgView.o
