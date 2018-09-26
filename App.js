@@ -17,7 +17,10 @@ import Transaction from './app/components/Transaction';
 import Insights from './app/components/Insights';
 import Accounts from './app/components/Accounts';
 import SendMoney from './app/components/SendMoney';
+import TouchId from './app/components/TouchId/TouchId';
 import api from './app/mobx/api';
+
+import { iOSColors } from 'react-native-typography';
 
 // import { iOSColors } from 'react-native-typography';
 
@@ -199,8 +202,23 @@ SendMoneyScreen.propTypes = {
   }).isRequired,
 };
 
+const TouchIdScreen = ({ navigation }) => (
+  <SafeAreaView style={{ flex: 1, backgroundColor: iOSColors.blue }}>
+    <TouchId navigation={navigation} />
+  </SafeAreaView>
+);
+
+TouchIdScreen.propTypes = {
+  navigation: PropTypes.shape({
+    goBack: PropTypes.func,
+  }).isRequired,
+};
+
 const RootNavigator = StackNavigator(
   {
+    TouchId: {
+      screen: TouchIdScreen,
+    },
     MainApp: {
       screen: MainApp,
     },

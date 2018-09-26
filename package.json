@@ -45,6 +45,7 @@
     "react": "16.3.1",
     "react-native": "~0.55.2",
     "react-native-elements": "^0.19.0",
+    "react-native-fingerprint-scanner": "^2.5.0",
     "react-native-linear-gradient": "^2.4.0",
     "react-native-snap-carousel": "^3.7.2",
     "react-native-svg": "^6.3.1",
