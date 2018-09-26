@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import FingerprintScanner from 'react-native-fingerprint-scanner';
+// import FingerprintScanner from 'react-native-fingerprint-scanner';
 import { iOSUIKit } from 'react-native-typography';
 
 import { Title, ScreenContainer, PrintButton, PrintIcon, ErrorMessage } from './styles';
 import TouchIdPopup from '../TouchIdPopup/TouchIdPopup';
 
 import printIcon from '../../static/images/finger_print.png';
+
+const FingerprintScanner = require('react-native-fingerprint-scanner').default;
 
 // const FingerprintScanner = require('react-native-fingerprint-scanner');
 
@@ -16,9 +18,26 @@ class TouchId extends Component {
   };
 
   componentDidMount() {
-    FingerprintScanner.isSensorAvailable()
-      .then(() => this.setState({ errorMessage: 'is available' }))
-      .catch(error => this.setState({ errorMessage: error.message }));
+    setTimeout(() => {
+      console.log(FingerprintScanner);
+      FingerprintScanner.isSensorAvailable()
+        .then(() => {
+          console.log('test');
+        })
+        .catch(err => {
+          console.log('err: ', err);
+        });
+    }, 1000);
+    // FingerprintScanner.authenticate({ description: 'Scan your fingerprint on the device scanner to continue' })
+    //   .then(() => {
+    //     console.log('success');
+    //   })
+    //   .catch(error => {
+    //     console.log('error: ', error);
+    //   });
+    // FingerprintScanner.isSensorAvailable()
+    //   .then(() => this.setState({ errorMessage: 'is available' }))
+    //   .catch(error => this.setState({ errorMessage: error.message }));
   }
 
   handleOpenPopup = () => {

@@ -4,7 +4,6 @@ import { withNavigation } from 'react-navigation';
 import { iOSColors, iOSUIKit } from 'react-native-typography';
 import { View, Text, StyleSheet, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import { Icon } from 'react-native-elements';
-import { LinearGradient } from 'expo';
 import PropTypes from 'prop-types';
 import { PENDING, APPROVED, REFUSED } from '../../static/constants';
 
@@ -83,13 +82,18 @@ const TransactionHeader = ({ navigation: { goBack }, transaction: { title, statu
   return (
     <View>
       <HeaderContainer>
-        <LinearGradient colors={['rgba(0,0,0,0.8)', 'transparent']} style={{ paddingTop: 50, padding: 20 }}>
+        {/* <LinearGradient colors={['rgba(0,0,0,0.8)', 'transparent']} style={{ paddingTop: 50, padding: 20 }}>
           <View style={styles.backButtonContainer}>
             <TouchableWithoutFeedback onPress={() => goBack(null)}>
               <Icon size={30} name="arrow-left-thick" type="material-community" />
             </TouchableWithoutFeedback>
           </View>
-        </LinearGradient>
+        </LinearGradient> */}
+        <View style={styles.backButtonContainer}>
+          <TouchableWithoutFeedback onPress={() => goBack(null)}>
+            <Icon size={30} name="arrow-left-thick" type="material-community" />
+          </TouchableWithoutFeedback>
+        </View>
       </HeaderContainer>
       <TitleContainer>
         <TitleIconWrapper>

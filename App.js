@@ -4,10 +4,9 @@ import 'es6-symbol/implement';
 import './debugging';
 
 import React, { Component } from 'react';
-import { Button, View, SafeAreaView, StatusBar } from 'react-native';
+import { Button, View, SafeAreaView, StatusBar, Text } from 'react-native';
 import { Provider } from 'mobx-react';
 import { StackNavigator, TabNavigator } from 'react-navigation';
-import { MaterialIcons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 
 import Dashboard from './app/components/Dashboard';
@@ -95,7 +94,7 @@ const AccountsView = () => (
 );
 
 const makeTabBarIcon = (icon, size = 24) => {
-  const TabBarIcon = ({ tintColor }) => <MaterialIcons color={tintColor} name={icon} size={size} />;
+  const TabBarIcon = ({ tintColor }) => <Text>Tab bar icon</Text>;
   TabBarIcon.propTypes = {
     tintColor: PropTypes.string.isRequired,
   };

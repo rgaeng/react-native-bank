@@ -2,7 +2,6 @@ import { View, Text, StyleSheet } from 'react-native';
 import { iOSUIKit, iOSColors } from 'react-native-typography';
 import styled from 'styled-components/native';
 import React from 'react';
-import { LinearGradient } from 'expo';
 import Chart from '../Chart';
 
 const styles = StyleSheet.create({
@@ -30,7 +29,7 @@ const TextWrapper = styled(View)`
 
 export default () => (
   <Wrapper>
-    <LinearGradient colors={['rgba(0,0,0,0.8)', 'transparent']} style={{ paddingTop: 30, padding: 20 }}>
+    {/* <LinearGradient colors={['rgba(0,0,0,0.8)', 'transparent']} style={{ paddingTop: 30, padding: 20 }}>
       <TextWrapper>
         <View>
           <Text style={[iOSUIKit.footnote, styles.title]}>Balance</Text>
@@ -61,6 +60,36 @@ export default () => (
           <Text style={[iOSUIKit.title3Emphasized, styles.value]}> 14</Text>
         </View>
       </TextWrapper>
-    </LinearGradient>
+    </LinearGradient> */}
+    <TextWrapper>
+        <View>
+          <Text style={[iOSUIKit.footnote, styles.title]}>Balance</Text>
+          <Text style={[iOSUIKit.title3Emphasized, styles.value]}> $10,839</Text>
+        </View>
+
+        <View>
+          <Text style={[iOSUIKit.footnote, styles.title]}>Spending this week</Text>
+          <Text style={[iOSUIKit.title3Emphasized, styles.value]}> $839</Text>
+        </View>
+      </TextWrapper>
+
+      <Chart />
+
+      <TextWrapper>
+        <View>
+          <Text style={[iOSUIKit.footnote, styles.bottomTitle]}>Upcoming bills</Text>
+          <Text style={[iOSUIKit.title3Emphasized, styles.value]}> $1,434</Text>
+        </View>
+
+        <View>
+          <Text style={[iOSUIKit.footnote, styles.bottomTitle]}>Safe to spend</Text>
+          <Text style={[iOSUIKit.title3Emphasized, styles.value]}> $424</Text>
+        </View>
+
+        <View>
+          <Text style={[iOSUIKit.footnote, styles.bottomTitle]}>Days to payday</Text>
+          <Text style={[iOSUIKit.title3Emphasized, styles.value]}> 14</Text>
+        </View>
+      </TextWrapper>
   </Wrapper>
 );
