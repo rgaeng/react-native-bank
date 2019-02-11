@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native-svg/ios/Utils/RNSVGBezierElement.m \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native-svg/ios/Utils/RNSVGBezierElement.h
+  /Users/eddiev/www/react-native-bank/node_modules/react-native-svg/ios/Utils/RNSVGBezierElement.m \
+  /Users/eddiev/www/react-native-bank/node_modules/react-native-svg/ios/Utils/RNSVGBezierElement.h
