@@ -3,7 +3,7 @@ import { withNavigation } from 'react-navigation';
 import { View, Text, TextInput } from 'react-native';
 import { CheckBox, Button, Avatar } from 'react-native-elements';
 import PropTypes from 'prop-types';
-import styled from 'styled-components/native';
+import styled from 'styled-components';
 import iOSColors from 'react-native-typography/dist/helpers/iOSColors';
 import iOSUIKit from 'react-native-typography/dist/collections/iOSUIKit';
 
@@ -20,11 +20,11 @@ const styles = {
   },
 };
 
-const Body = styled.View`
+const Body = styled(props => <View {...props} />)`
   width: 100%;
 `;
 
-const AvatarContainer = styled(View)`
+const AvatarContainer = styled(props => <View {...props} />)`
   margin: 0 auto;
   display: flex;
   flex-direction: row;
@@ -34,7 +34,7 @@ const AvatarContainer = styled(View)`
   margin-bottom: 30;
 `;
 
-const FieldContainer = styled(View)`
+const FieldContainer = styled(props => <View {...props} />)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -46,7 +46,7 @@ const FieldContainer = styled(View)`
   borderbottomcolor: ${iOSColors.gray};
 `;
 
-const Label = styled(Text)``;
+const Label = styled(props => <Text {...props} />)``;
 
 class SendMoney extends Component {
   constructor(props) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import styled from 'styled-components';
 import { withNavigation } from 'react-navigation';
 import { iOSColors, iOSUIKit } from 'react-native-typography';
 import { LinearGradient } from 'react-native-linear-gradient';
@@ -29,21 +29,21 @@ const styles = StyleSheet.create({
   },
 });
 
-const HeaderContainer = styled(View)`
+const HeaderContainer = styled(props => <View {...props} />)`
   background: ${iOSColors.blue};
   height: ${height * 0.15};
 `;
 
-const TitleContainer = styled(View)`
+const TitleContainer = styled(props => <View {...props} />)`
   margin-top: -30;
 `;
 
-const Title = styled(Text)`
+const Title = styled(props => <Text {...props} />)`
   margin: 0 auto;
   margin-top: 10;
 `;
 
-const StatusContainer = styled(View)`
+const StatusContainer = styled(props => <View {...props} />)`
   position: absolute;
   right: 10;
   top: 40;
@@ -52,11 +52,11 @@ const StatusContainer = styled(View)`
   align-items: center;
 `;
 
-const Status = styled(Text)`
+const Status = styled(props => <Text {...props} />)`
   color: ${iOSColors.gray};
 `;
 
-const TitleIconWrapper = styled(View)`
+const TitleIconWrapper = styled(props => <View {...props} />)`
   background: ${iOSColors.gray};
   width: 60;
   height: 60;

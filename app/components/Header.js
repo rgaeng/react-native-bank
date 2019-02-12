@@ -2,11 +2,11 @@ import React from 'react';
 import { withNavigation } from 'react-navigation';
 import { iOSColors, iOSUIKit } from 'react-native-typography';
 import { View, Text } from 'react-native';
-import styled from 'styled-components/native';
+import styled from 'styled-components';
 import { Icon } from 'react-native-elements';
 import PropTypes from 'prop-types';
 
-const Wrapper = styled(View)`
+const Wrapper = styled(props => <View {...props} />)`
   background: ${iOSColors.white};
   height: 40;
   display: flex;
@@ -15,16 +15,16 @@ const Wrapper = styled(View)`
   align-items: center;
 `;
 
-const BackButton = styled(View)`
+const BackButton = styled(props => <View {...props} />)`
   flex: 1;
 `;
 
-const Title = styled(Text)`
+const Title = styled(props => <Text {...props} />)`
   flex: 4;
   text-align: center;
 `;
 
-const MenuButton = styled(View)`
+const MenuButton = styled(props => <View {...props} />)`
   flex: 1;
 `;
 
