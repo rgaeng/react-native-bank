@@ -1,5 +1,10 @@
 import React from 'react';
-import { createStackNavigator, createBottomTabNavigator, createSwitchNavigator } from 'react-navigation';
+import {
+  createStackNavigator,
+  createBottomTabNavigator,
+  createSwitchNavigator,
+  createAppContainer,
+} from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
 import screens from '../screens';
@@ -88,9 +93,9 @@ const RootNavigator = createSwitchNavigator(
     },
   },
   {
-    headerMode: 'none',
+    // headerMode: 'none',
     initialRouteName: routeNames.AUTH,
   }
 );
 
-export default RootNavigator;
+export default createAppContainer(RootNavigator);

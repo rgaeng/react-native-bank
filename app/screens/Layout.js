@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SafeAreaView, StatusBar, View } from 'react-native';
+import { StatusBar, View } from 'react-native';
+import { SafeAreaView } from 'react-navigation';
 
 export const LayoutThemes = {
   dark: {

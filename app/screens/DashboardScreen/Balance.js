@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native';
 import { iOSUIKit, iOSColors } from 'react-native-typography';
 import LinearGradient from 'react-native-linear-gradient';
-import styled from 'styled-components/native';
+import styled from 'styled-components';
 import React from 'react';
 import Chart from '../../components/Chart';
 
@@ -18,11 +18,11 @@ const styles = StyleSheet.create({
   },
 });
 
-const Wrapper = styled(View)`
+const Wrapper = styled(props => <View {...props} />)`
   background: ${iOSColors.blue};
 `;
 
-const TextWrapper = styled(View)`
+const TextWrapper = styled(props => <View {...props} />)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;

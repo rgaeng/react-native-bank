@@ -1,23 +1,20 @@
 dependencies: \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native/React/Modules/RCTDevSettings.mm \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native/React/Modules/RCTDevSettings.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native/React/Base/RCTBridge.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native/React/Base/RCTDefines.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native/React/Base/RCTBridgeModule.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native/React/Base/RCTFrameUpdate.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native/React/Base/RCTInvalidating.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JavaScriptCore.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JSCWrapper.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native/React/Base/RCTBridge+Private.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native/React/Base/RCTEventDispatcher.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native/React/Modules/RCTJSCSamplingProfiler.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native/React/Base/RCTLog.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native/React/Base/RCTAssert.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native/React/Base/RCTUtils.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native/React/DevSupport/RCTPackagerClient.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native/React/Profiler/RCTProfile.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native/React/DevSupport/RCTPackagerConnection.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native/React/DevSupport/RCTInspectorDevServerHelper.h \
-  /Users/bogdanp/Documents/PETPROJ/react-native-bank/node_modules/react-native/React/Inspector/RCTInspectorPackagerConnection.h
+  /Users/eddiev/www/react-native-bank/node_modules/react-native/React/Modules/RCTDevSettings.mm \
+  /Users/eddiev/www/react-native-bank/node_modules/react-native/React/Modules/RCTDevSettings.h \
+  /Users/eddiev/www/react-native-bank/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/eddiev/www/react-native-bank/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/eddiev/www/react-native-bank/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/eddiev/www/react-native-bank/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/eddiev/www/react-native-bank/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/eddiev/www/react-native-bank/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/eddiev/www/react-native-bank/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/eddiev/www/react-native-bank/node_modules/react-native/React/Base/RCTBridge+Private.h \
+  /Users/eddiev/www/react-native-bank/node_modules/react-native/React/Base/RCTEventDispatcher.h \
+  /Users/eddiev/www/react-native-bank/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/eddiev/www/react-native-bank/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/eddiev/www/react-native-bank/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/eddiev/www/react-native-bank/node_modules/react-native/React/Profiler/RCTProfile.h \
+  /Users/eddiev/www/react-native-bank/node_modules/react-native/React/DevSupport/RCTPackagerClient.h \
+  /Users/eddiev/www/react-native-bank/node_modules/react-native/React/DevSupport/RCTPackagerConnection.h \
+  /Users/eddiev/www/react-native-bank/node_modules/react-native/React/DevSupport/RCTInspectorDevServerHelper.h \
+  /Users/eddiev/www/react-native-bank/node_modules/react-native/React/Inspector/RCTInspectorPackagerConnection.h

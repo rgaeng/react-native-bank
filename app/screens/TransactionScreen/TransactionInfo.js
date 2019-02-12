@@ -1,12 +1,12 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import styled from 'styled-components';
 import { iOSColors, iOSUIKit } from 'react-native-typography';
 import PropTypes from 'prop-types';
 
 import { View, Text } from 'react-native';
 import { Card, List, ListItem } from 'react-native-elements';
 
-const ValueWrapper = styled(View)`
+const ValueWrapper = styled(props => <View {...props} />)`
   margin: 0 auto;
   margin-top: 30;
   margin-bottom: 30;

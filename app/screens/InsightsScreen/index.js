@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { iOSColors } from 'react-native-typography';
 import { Text, View, ScrollView, StyleSheet } from 'react-native';
 import { Icon, List, ListItem } from 'react-native-elements';
-import styled from 'styled-components/native';
+import styled from 'styled-components';
 
 import Header from '../../components/Header';
 import { categories, merchants } from '../../static/fakeData';
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const MonthsContainer = styled(View)`
+const MonthsContainer = styled(props => <View {...props} />)`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -37,14 +37,14 @@ const MonthsContainer = styled(View)`
   background-color: ${iOSColors.lightGray};
 `;
 
-const Month = styled(Text)`
+const Month = styled(props => <Text {...props} />)`
   color: ${iOSColors.gray};
   text-align: center;
   margin-left: 25;
   margin-right: 25;
 `;
 
-const Body = styled(View)`
+const Body = styled(props => <View {...props} />)`
   padding-top: 20;
   padding-bottom: 20;
   padding-left: 20;
@@ -54,24 +54,24 @@ const Body = styled(View)`
   height: 85%;
 `;
 
-const ButtonsContainer = styled(View)`
+const ButtonsContainer = styled(props => <View {...props} />)`
   display: flex;
   flex-direction: row;
 `;
 
-const Button = styled(Text)`
+const Button = styled(props => <Text {...props} />)`
   flex: 1;
   text-align: center;
 `;
 
-const Footer = styled(View)`
+const Footer = styled(props => <View {...props} />)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 `;
 
-const PlusContainer = styled(View)`
+const PlusContainer = styled(props => <View {...props} />)`
   display: flex;
   flex-direction: row;
   align-items: center;
